@@ -6,7 +6,7 @@ from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDur
 
 from px4_msgs.msg import VehicleStatus
 from px4_msgs.msg import VehicleAttitude
-from geometry_msgs.msg import Twist, Vector3
+from geometry_msgs.msg import Twist, Vector3, PoseStamped
 from std_msgs.msg import Bool
 from px4_msgs.msg import OffboardControlMode
 from px4_msgs.msg import TrajectorySetpoint
@@ -66,6 +66,13 @@ class offboard_start(Node):
             Bool,
             '/vtol_message_mc',
             self.vtol_msg_callback_mc,
+            qos_profile
+        )
+
+        self.position_setpoint_sub = self.create_subscription(
+            PoseStamped,
+            '/offboard_position_cmd',
+            self.offboard_position_callback,
             qos_profile
         )
 
@@ -274,6 +281,12 @@ class offboard_start(Node):
         self.failsafe = msg.failsafe
         self.flightCheck = msg.pre_flight_checks_pass
 
+    def offboard_position_callback(self, msg):
+        self.posx = msg.pose.position.x
+        self.posy = -msg.pose.position.y
+        self.posz = -msg.pose.position.z
+        self.posyaw = msg.pose.orientation
+
     def offboard_velocity_callback(self, msg):
         self.velocity.x = -msg.linear.y
         self.velocity.y = msg.linear.x
@@ -292,7 +305,7 @@ class offboard_start(Node):
             offboard_msg = OffboardControlMode()
             offboard_msg.timestamp = int(Clock().now().nanoseconds / 1000)
             offboard_msg.position = True
-            offboard_msg.velocity = True
+            offboard_msg.velocity = False
             offboard_msg.acceleration = False
             self.publisher_offboard_mode.publish(offboard_msg)
 
@@ -306,13 +319,13 @@ class offboard_start(Node):
             trajectory_msg.velocity[0] = velocity_world_x
             trajectory_msg.velocity[1] = velocity_world_y
             trajectory_msg.velocity[2] = self.velocity.z
-            trajectory_msg.position[0] = float('nan')
-            trajectory_msg.position[1] = float('nan')
-            trajectory_msg.position[2] = float('nan')
+            trajectory_msg.position[0] = self.posx
+            trajectory_msg.position[1] = self.posy
+            trajectory_msg.position[2] = self.posz
             trajectory_msg.acceleration[0] = float('nan')
             trajectory_msg.acceleration[1] = float('nan')
             trajectory_msg.acceleration[2] = float('nan')
-            trajectory_msg.yaw = float('nan')
+            trajectory_msg.yaw = self.posyaw
             trajectory_msg.yawspeed = self.yaw
             self.publisher_trajectory.publish(trajectory_msg)
         if (self.vtol_msg_fw):
