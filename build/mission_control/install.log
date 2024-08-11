@@ -11,6 +11,7 @@
 /home/joe/ysdrone_2024/install/mission_control/share/mission_control/package.xml
 /home/joe/ysdrone_2024/install/mission_control/share/mission_control/missions.launch.py
 /home/joe/ysdrone_2024/install/mission_control/share/mission_control/visualize.rviz
+/home/joe/ysdrone_2024/install/mission_control/share/mission_control/test_clothoid_result.csv
 /home/joe/ysdrone_2024/install/mission_control/lib/python3.10/site-packages/mission_control-0.0.0-py3.10.egg-info/top_level.txt
 /home/joe/ysdrone_2024/install/mission_control/lib/python3.10/site-packages/mission_control-0.0.0-py3.10.egg-info/zip-safe
 /home/joe/ysdrone_2024/install/mission_control/lib/python3.10/site-packages/mission_control-0.0.0-py3.10.egg-info/entry_points.txt

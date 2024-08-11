@@ -303,12 +303,21 @@ class offboard_start(Node):
 
             trajectory_msg = TrajectorySetpoint()
             trajectory_msg.timestamp = int(Clock().now().nanoseconds / 1000)
+<<<<<<< Updated upstream
             trajectory_msg.velocity[0] = velocity_world_x
             trajectory_msg.velocity[1] = velocity_world_y
             trajectory_msg.velocity[2] = self.velocity.z
             trajectory_msg.position[0] = float('nan')
             trajectory_msg.position[1] = float('nan')
             trajectory_msg.position[2] = float('nan')
+=======
+            trajectory_msg.velocity[0] = float('nan')#velocity_world_x
+            trajectory_msg.velocity[1] = float('nan')#velocity_world_y
+            trajectory_msg.velocity[2] = float('nan')#self.velocity.z
+            trajectory_msg.position[0] = self.posx
+            trajectory_msg.position[1] = self.posy
+            trajectory_msg.position[2] = self.posz
+>>>>>>> Stashed changes
             trajectory_msg.acceleration[0] = float('nan')
             trajectory_msg.acceleration[1] = float('nan')
             trajectory_msg.acceleration[2] = float('nan')
