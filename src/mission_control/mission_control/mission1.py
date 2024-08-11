@@ -7,7 +7,7 @@ import csv
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy, QoSHistoryPolicy, QoSDurabilityPolicy
 
-from geometry_msgs.msg import Twist, PoseStamped, Vector3
+from geometry_msgs.msg import Twist, PoseStamped, Vector3, Quaternion
 from std_msgs.msg import Bool
 from px4_msgs.msg import VehicleCommand
 import time
@@ -36,6 +36,12 @@ class MissionOne(Node):
         self.velocity_publisher = self.create_publisher(
             Twist,
             '/offboard_velocity_cmd',
+            qos_profile
+        )
+
+        self.position_publisher = self.create_publisher(
+            PoseStamped,
+            '/offboard_position_cmd',
             qos_profile
         )
 
@@ -74,20 +80,20 @@ class MissionOne(Node):
         self.current_position = {'x': 0.0, 'y': 0.0, 'z': 0.0}
 
         self.waypoints = [
-            {'x': 0.0, 'y': 0.0, 'z': 8.0},
-            {'x': 248.33, 'y': 111.53, 'z': 20.0},
-            {'x': -100.17, 'y': 240.18, 'z': 20.0},
-            {'x': -31.75, 'y': 96.96, 'z': 10.0},
-            {'x': 53.25, 'y': -91.07, 'z': 10.0},
-            {'x': 142.13, 'y': -96.41, 'z': 20.0},
-            {'x': 217.31, 'y': -162.45, 'z': 20.0},
-            {'x': 175.19, 'y': -185.25, 'z': 20.0},
-            {'x': 18.82, 'y': -94.74, 'z': 8.0},
-            {'x': 0.0, 'y': 0.0, 'z': 8.0}
+            {'x': 0.0, 'y': 0.0, 'z': 8.0}, #WP1
+            {'x': 248.33, 'y': 111.53, 'z': 50.0}, #WP2
+            {'x': -100.17, 'y': 240.18, 'z': 50.0}, #WP3
+            {'x': -31.75, 'y': 96.96, 'z': 10.0}, #WP4
+            {'x': 53.25, 'y': -91.07, 'z': 10.0}, #WP5
+            {'x': 142.13, 'y': -96.41, 'z': 20.0}, #WP6
+            {'x': 217.31, 'y': -162.45, 'z': 30.0}, #WP7
+            {'x': 175.19, 'y': -185.25, 'z': 50.0}, #WP8
+            {'x': 18.82, 'y': -94.74, 'z': 8.0}, #WP9
+            {'x': 0.0, 'y': 0.0, 'z': 8.0} #WP10
         ]
 
         self.curr_way_index = 0
-        self.position_tolerance = 3.0
+        self.position_tolerance = 10.0
         self.s_position_tolerance = 30.0
         self.vtol_count = 0
         self.s_waypoint_ind = 0
@@ -231,12 +237,17 @@ class MissionOne(Node):
                     self.curr_way_index += 1
                     self.get_logger().info(f"Waypoint {self.curr_way_index} reached")
                 self.s_waypoint_ind += 1
+                if (self.curr_way_index == 1):
+                    self.s_position_tolerance = 35.0
+                else:
+                    self.s_position_tolerance = 30.0
             elif (self.current_position['x'] > 25.0) and self.curr_way_index == 1 and self.vtol_count == 0:
                 self.arm_vtol(True)
                 self.vtol_count += 1
+            
             else:
-                twist = self.calculate_velocity_command(target)
-                self.velocity_publisher.publish(twist)
+                pose = self.calculate_position_command(target)
+                self.position_publisher.publish(pose)
                 
 
         else:
@@ -265,6 +276,41 @@ class MissionOne(Node):
         twist.angular = Vector3(x=0.0, y=0.0, z=0.0)
 
         return twist
+    
+    def calculate_position_command(self, target):
+        pose = PoseStamped()
+        pose.header.stamp = self.get_clock().now().to_msg()
+        pose.pose.position.x = target['x']
+        pose.pose.position.y = target['y']
+        pose.pose.position.z = target['z']
+
+        # Calculate desired yaw
+        error_y = target['y'] - self.current_position['y']
+        error_x = target['x'] - self.current_position['x']
+        desired_yaw = math.atan2(error_y, error_x)
+
+        # Set yaw in Euler angles directly
+        pose.pose.orientation = self.euler_to_quaternion(0, 0, desired_yaw)
+
+        return pose
+
+    def euler_to_quaternion(self, roll, pitch, yaw):
+        """
+        Convert an Euler angle to a quaternion.
+        roll, pitch, yaw: in radians
+        """
+        qx = math.sin(roll / 2) * math.cos(pitch / 2) * math.cos(yaw / 2) - math.cos(roll / 2) * math.sin(pitch / 2) * math.sin(yaw / 2)
+        qy = math.cos(roll / 2) * math.sin(pitch / 2) * math.cos(yaw / 2) + math.sin(roll / 2) * math.cos(pitch / 2) * math.sin(yaw / 2)
+        qz = math.cos(roll / 2) * math.cos(pitch / 2) * math.sin(yaw / 2) - math.sin(roll / 2) * math.sin(pitch / 2) * math.cos(yaw / 2)
+        qw = math.cos(roll / 2) * math.cos(pitch / 2) * math.cos(yaw / 2) + math.sin(roll / 2) * math.sin(pitch / 2) * math.sin(yaw / 2)
+        
+        quaternion = Quaternion()
+        quaternion.x = qx
+        quaternion.y = qy
+        quaternion.z = qz
+        quaternion.w = qw
+
+        return quaternion
 
     def is_waypoint_reached(self, target):
         x_dist = abs(target['x'] - self.current_position['x'])
@@ -281,8 +327,7 @@ class MissionOne(Node):
         z_dist = abs(target['z'] - self.current_position['z'])
 
         return (x_dist < self.s_position_tolerance and
-                y_dist < self.s_position_tolerance and
-                z_dist < self.s_position_tolerance)
+                y_dist < self.s_position_tolerance)
     
 
 
