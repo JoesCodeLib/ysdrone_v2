@@ -385,9 +385,6 @@ CMakeFiles/px4_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_genera
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/follow_target_status__type_support.h \
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/follow_target_status__struct.h \
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/follow_target_status__functions.h \
- /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/fuel_tank_status__type_support.h \
- /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/fuel_tank_status__struct.h \
- /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/fuel_tank_status__functions.h \
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/generator_status__type_support.h \
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/generator_status__struct.h \
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/generator_status__functions.h \
@@ -628,12 +625,6 @@ CMakeFiles/px4_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_genera
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/register_ext_component_request__type_support.h \
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/register_ext_component_request__struct.h \
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/register_ext_component_request__functions.h \
- /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/rover_ackermann_guidance_status__type_support.h \
- /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/rover_ackermann_guidance_status__struct.h \
- /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/rover_ackermann_guidance_status__functions.h \
- /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/rover_ackermann_status__type_support.h \
- /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/rover_ackermann_status__struct.h \
- /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/rover_ackermann_status__functions.h \
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/rpm__type_support.h \
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/rpm__struct.h \
  /home/joe/ysdrone_2024/build/px4_msgs/rosidl_generator_c/px4_msgs/msg/detail/rpm__functions.h \

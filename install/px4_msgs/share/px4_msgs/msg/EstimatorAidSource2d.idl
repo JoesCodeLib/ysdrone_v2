@@ -27,17 +27,9 @@ module px4_msgs {
 
       float__2 innovation;
 
-      float__2 innovation_filtered;
-
       float__2 innovation_variance;
 
-      @verbatim (language="comment", text=
-        "normalized innovation squared")
       float__2 test_ratio;
-
-      @verbatim (language="comment", text=
-        "signed filtered test ratio")
-      float__2 test_ratio_filtered;
 
       @verbatim (language="comment", text=
         "true if the observation has been rejected")

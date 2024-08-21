@@ -50,8 +50,10 @@ cdr_serialize(
   cdr << ros_message.pos_horiz_accuracy;
   // Member: pos_vert_accuracy
   cdr << ros_message.pos_vert_accuracy;
-  // Member: hdg_test_ratio
-  cdr << ros_message.hdg_test_ratio;
+  // Member: innovation_check_flags
+  cdr << ros_message.innovation_check_flags;
+  // Member: mag_test_ratio
+  cdr << ros_message.mag_test_ratio;
   // Member: vel_test_ratio
   cdr << ros_message.vel_test_ratio;
   // Member: pos_test_ratio
@@ -80,14 +82,12 @@ cdr_serialize(
   cdr << ros_message.time_slip;
   // Member: pre_flt_fail_innov_heading
   cdr << (ros_message.pre_flt_fail_innov_heading ? true : false);
-  // Member: pre_flt_fail_innov_height
-  cdr << (ros_message.pre_flt_fail_innov_height ? true : false);
-  // Member: pre_flt_fail_innov_pos_horiz
-  cdr << (ros_message.pre_flt_fail_innov_pos_horiz ? true : false);
   // Member: pre_flt_fail_innov_vel_horiz
   cdr << (ros_message.pre_flt_fail_innov_vel_horiz ? true : false);
   // Member: pre_flt_fail_innov_vel_vert
   cdr << (ros_message.pre_flt_fail_innov_vel_vert ? true : false);
+  // Member: pre_flt_fail_innov_height
+  cdr << (ros_message.pre_flt_fail_innov_height ? true : false);
   // Member: pre_flt_fail_mag_field_disturbed
   cdr << (ros_message.pre_flt_fail_mag_field_disturbed ? true : false);
   // Member: accel_device_id
@@ -145,8 +145,11 @@ cdr_deserialize(
   // Member: pos_vert_accuracy
   cdr >> ros_message.pos_vert_accuracy;
 
-  // Member: hdg_test_ratio
-  cdr >> ros_message.hdg_test_ratio;
+  // Member: innovation_check_flags
+  cdr >> ros_message.innovation_check_flags;
+
+  // Member: mag_test_ratio
+  cdr >> ros_message.mag_test_ratio;
 
   // Member: vel_test_ratio
   cdr >> ros_message.vel_test_ratio;
@@ -194,20 +197,6 @@ cdr_deserialize(
     ros_message.pre_flt_fail_innov_heading = tmp ? true : false;
   }
 
-  // Member: pre_flt_fail_innov_height
-  {
-    uint8_t tmp;
-    cdr >> tmp;
-    ros_message.pre_flt_fail_innov_height = tmp ? true : false;
-  }
-
-  // Member: pre_flt_fail_innov_pos_horiz
-  {
-    uint8_t tmp;
-    cdr >> tmp;
-    ros_message.pre_flt_fail_innov_pos_horiz = tmp ? true : false;
-  }
-
   // Member: pre_flt_fail_innov_vel_horiz
   {
     uint8_t tmp;
@@ -220,6 +209,13 @@ cdr_deserialize(
     uint8_t tmp;
     cdr >> tmp;
     ros_message.pre_flt_fail_innov_vel_vert = tmp ? true : false;
+  }
+
+  // Member: pre_flt_fail_innov_height
+  {
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message.pre_flt_fail_innov_height = tmp ? true : false;
   }
 
   // Member: pre_flt_fail_mag_field_disturbed
@@ -324,9 +320,15 @@ get_serialized_size(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // Member: hdg_test_ratio
+  // Member: innovation_check_flags
   {
-    size_t item_size = sizeof(ros_message.hdg_test_ratio);
+    size_t item_size = sizeof(ros_message.innovation_check_flags);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: mag_test_ratio
+  {
+    size_t item_size = sizeof(ros_message.mag_test_ratio);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -414,18 +416,6 @@ get_serialized_size(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // Member: pre_flt_fail_innov_height
-  {
-    size_t item_size = sizeof(ros_message.pre_flt_fail_innov_height);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: pre_flt_fail_innov_pos_horiz
-  {
-    size_t item_size = sizeof(ros_message.pre_flt_fail_innov_pos_horiz);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
   // Member: pre_flt_fail_innov_vel_horiz
   {
     size_t item_size = sizeof(ros_message.pre_flt_fail_innov_vel_horiz);
@@ -435,6 +425,12 @@ get_serialized_size(
   // Member: pre_flt_fail_innov_vel_vert
   {
     size_t item_size = sizeof(ros_message.pre_flt_fail_innov_vel_vert);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: pre_flt_fail_innov_height
+  {
+    size_t item_size = sizeof(ros_message.pre_flt_fail_innov_height);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -600,7 +596,16 @@ max_serialized_size_EstimatorStatus(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
   }
 
-  // Member: hdg_test_ratio
+  // Member: innovation_check_flags
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint16_t);
+    current_alignment += array_size * sizeof(uint16_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint16_t));
+  }
+
+  // Member: mag_test_ratio
   {
     size_t array_size = 1;
 
@@ -729,22 +734,6 @@ max_serialized_size_EstimatorStatus(
     current_alignment += array_size * sizeof(uint8_t);
   }
 
-  // Member: pre_flt_fail_innov_height
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint8_t);
-    current_alignment += array_size * sizeof(uint8_t);
-  }
-
-  // Member: pre_flt_fail_innov_pos_horiz
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint8_t);
-    current_alignment += array_size * sizeof(uint8_t);
-  }
-
   // Member: pre_flt_fail_innov_vel_horiz
   {
     size_t array_size = 1;
@@ -754,6 +743,14 @@ max_serialized_size_EstimatorStatus(
   }
 
   // Member: pre_flt_fail_innov_vel_vert
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
+
+  // Member: pre_flt_fail_innov_height
   {
     size_t array_size = 1;
 

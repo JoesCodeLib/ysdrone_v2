@@ -38,8 +38,12 @@ cdr_serialize(
   cdr << (ros_message.connected ? true : false);
   // Member: voltage_v
   cdr << ros_message.voltage_v;
+  // Member: voltage_filtered_v
+  cdr << ros_message.voltage_filtered_v;
   // Member: current_a
   cdr << ros_message.current_a;
+  // Member: current_filtered_a
+  cdr << ros_message.current_filtered_a;
   // Member: current_average_a
   cdr << ros_message.current_average_a;
   // Member: discharged_mah
@@ -94,28 +98,22 @@ cdr_serialize(
   cdr << ros_message.warning;
   // Member: mode
   cdr << ros_message.mode;
+  // Member: average_power
+  cdr << ros_message.average_power;
+  // Member: available_energy
+  cdr << ros_message.available_energy;
   // Member: full_charge_capacity_wh
   cdr << ros_message.full_charge_capacity_wh;
   // Member: remaining_capacity_wh
   cdr << ros_message.remaining_capacity_wh;
+  // Member: design_capacity
+  cdr << ros_message.design_capacity;
+  // Member: average_time_to_full
+  cdr << ros_message.average_time_to_full;
   // Member: over_discharge_count
   cdr << ros_message.over_discharge_count;
   // Member: nominal_voltage
   cdr << ros_message.nominal_voltage;
-  // Member: internal_resistance_estimate
-  cdr << ros_message.internal_resistance_estimate;
-  // Member: ocv_estimate
-  cdr << ros_message.ocv_estimate;
-  // Member: ocv_estimate_filtered
-  cdr << ros_message.ocv_estimate_filtered;
-  // Member: volt_based_soc_estimate
-  cdr << ros_message.volt_based_soc_estimate;
-  // Member: voltage_prediction
-  cdr << ros_message.voltage_prediction;
-  // Member: prediction_error
-  cdr << ros_message.prediction_error;
-  // Member: estimation_covariance_norm
-  cdr << ros_message.estimation_covariance_norm;
   return true;
 }
 
@@ -138,8 +136,14 @@ cdr_deserialize(
   // Member: voltage_v
   cdr >> ros_message.voltage_v;
 
+  // Member: voltage_filtered_v
+  cdr >> ros_message.voltage_filtered_v;
+
   // Member: current_a
   cdr >> ros_message.current_a;
+
+  // Member: current_filtered_a
+  cdr >> ros_message.current_filtered_a;
 
   // Member: current_average_a
   cdr >> ros_message.current_average_a;
@@ -229,38 +233,29 @@ cdr_deserialize(
   // Member: mode
   cdr >> ros_message.mode;
 
+  // Member: average_power
+  cdr >> ros_message.average_power;
+
+  // Member: available_energy
+  cdr >> ros_message.available_energy;
+
   // Member: full_charge_capacity_wh
   cdr >> ros_message.full_charge_capacity_wh;
 
   // Member: remaining_capacity_wh
   cdr >> ros_message.remaining_capacity_wh;
 
+  // Member: design_capacity
+  cdr >> ros_message.design_capacity;
+
+  // Member: average_time_to_full
+  cdr >> ros_message.average_time_to_full;
+
   // Member: over_discharge_count
   cdr >> ros_message.over_discharge_count;
 
   // Member: nominal_voltage
   cdr >> ros_message.nominal_voltage;
-
-  // Member: internal_resistance_estimate
-  cdr >> ros_message.internal_resistance_estimate;
-
-  // Member: ocv_estimate
-  cdr >> ros_message.ocv_estimate;
-
-  // Member: ocv_estimate_filtered
-  cdr >> ros_message.ocv_estimate_filtered;
-
-  // Member: volt_based_soc_estimate
-  cdr >> ros_message.volt_based_soc_estimate;
-
-  // Member: voltage_prediction
-  cdr >> ros_message.voltage_prediction;
-
-  // Member: prediction_error
-  cdr >> ros_message.prediction_error;
-
-  // Member: estimation_covariance_norm
-  cdr >> ros_message.estimation_covariance_norm;
 
   return true;
 }
@@ -296,9 +291,21 @@ get_serialized_size(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+  // Member: voltage_filtered_v
+  {
+    size_t item_size = sizeof(ros_message.voltage_filtered_v);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
   // Member: current_a
   {
     size_t item_size = sizeof(ros_message.current_a);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: current_filtered_a
+  {
+    size_t item_size = sizeof(ros_message.current_filtered_a);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -459,6 +466,18 @@ get_serialized_size(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+  // Member: average_power
+  {
+    size_t item_size = sizeof(ros_message.average_power);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: available_energy
+  {
+    size_t item_size = sizeof(ros_message.available_energy);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
   // Member: full_charge_capacity_wh
   {
     size_t item_size = sizeof(ros_message.full_charge_capacity_wh);
@@ -471,6 +490,18 @@ get_serialized_size(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
+  // Member: design_capacity
+  {
+    size_t item_size = sizeof(ros_message.design_capacity);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
+  // Member: average_time_to_full
+  {
+    size_t item_size = sizeof(ros_message.average_time_to_full);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
   // Member: over_discharge_count
   {
     size_t item_size = sizeof(ros_message.over_discharge_count);
@@ -480,48 +511,6 @@ get_serialized_size(
   // Member: nominal_voltage
   {
     size_t item_size = sizeof(ros_message.nominal_voltage);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: internal_resistance_estimate
-  {
-    size_t item_size = sizeof(ros_message.internal_resistance_estimate);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: ocv_estimate
-  {
-    size_t item_size = sizeof(ros_message.ocv_estimate);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: ocv_estimate_filtered
-  {
-    size_t item_size = sizeof(ros_message.ocv_estimate_filtered);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: volt_based_soc_estimate
-  {
-    size_t item_size = sizeof(ros_message.volt_based_soc_estimate);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: voltage_prediction
-  {
-    size_t item_size = sizeof(ros_message.voltage_prediction);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: prediction_error
-  {
-    size_t item_size = sizeof(ros_message.prediction_error);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // Member: estimation_covariance_norm
-  {
-    size_t item_size = sizeof(ros_message.estimation_covariance_norm);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -575,7 +564,25 @@ max_serialized_size_BatteryStatus(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
   }
 
+  // Member: voltage_filtered_v
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
   // Member: current_a
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
+  // Member: current_filtered_a
   {
     size_t array_size = 1;
 
@@ -810,6 +817,24 @@ max_serialized_size_BatteryStatus(
     current_alignment += array_size * sizeof(uint8_t);
   }
 
+  // Member: average_power
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
+  // Member: available_energy
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
   // Member: full_charge_capacity_wh
   {
     size_t array_size = 1;
@@ -826,6 +851,24 @@ max_serialized_size_BatteryStatus(
     last_member_size = array_size * sizeof(uint32_t);
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
+  // Member: design_capacity
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint32_t);
+    current_alignment += array_size * sizeof(uint32_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
+  }
+
+  // Member: average_time_to_full
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint16_t);
+    current_alignment += array_size * sizeof(uint16_t) +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint16_t));
   }
 
   // Member: over_discharge_count
@@ -846,69 +889,6 @@ max_serialized_size_BatteryStatus(
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
   }
 
-  // Member: internal_resistance_estimate
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-
-  // Member: ocv_estimate
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-
-  // Member: ocv_estimate_filtered
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-
-  // Member: volt_based_soc_estimate
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-
-  // Member: voltage_prediction
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-
-  // Member: prediction_error
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-
-  // Member: estimation_covariance_norm
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -917,7 +897,7 @@ max_serialized_size_BatteryStatus(
     using DataType = px4_msgs::msg::BatteryStatus;
     is_plain =
       (
-      offsetof(DataType, estimation_covariance_norm) +
+      offsetof(DataType, nominal_voltage) +
       last_member_size
       ) == ret_val;
   }

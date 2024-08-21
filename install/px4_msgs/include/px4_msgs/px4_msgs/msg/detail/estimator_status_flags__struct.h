@@ -72,7 +72,7 @@ typedef struct px4_msgs__msg__EstimatorStatusFlags
   /// 21 - true when rng data wasn't ready for more than 10s and new rng values haven't changed enough
   bool cs_rng_stuck;
   /// 22 - true when yaw (not ground course) data fusion from a GPS receiver is intended
-  bool cs_gnss_yaw;
+  bool cs_gps_yaw;
   /// 23 - true when the in-flight mag field alignment has been completed
   bool cs_mag_aligned_in_flight;
   /// 24 - true when local frame velocity data fusion from external vision measurements is intended
@@ -82,7 +82,7 @@ typedef struct px4_msgs__msg__EstimatorStatusFlags
   /// 26 - true when the vehicle is at rest
   bool cs_vehicle_at_rest;
   /// 27 - true when the GNSS heading has been declared faulty and is no longer being used
-  bool cs_gnss_yaw_fault;
+  bool cs_gps_yaw_fault;
   /// 28 - true when the range finder has been declared faulty and is no longer being used
   bool cs_rng_fault;
   /// 29 - true if we are no longer fusing measurements that constrain horizontal velocity drift
@@ -105,10 +105,6 @@ typedef struct px4_msgs__msg__EstimatorStatusFlags
   bool cs_mag_heading_consistent;
   /// 38 - true if auxiliary global position measurement fusion is intended
   bool cs_aux_gpos;
-  /// 39 - true if we are fusing range finder data for terrain
-  bool cs_rng_terrain;
-  /// 40 - true if we are fusing flow data for terrain
-  bool cs_opt_flow_terrain;
   /// fault status
   /// number of filter fault status (fs) changes
   uint32_t fault_status_changes;

@@ -74,13 +74,6 @@ inline void to_flow_style_yaml(
     out << ", ";
   }
 
-  // member: delta_terrain
-  {
-    out << "delta_terrain: ";
-    rosidl_generator_traits::value_to_yaml(msg.delta_terrain, out);
-    out << ", ";
-  }
-
   // member: lat_lon_reset_counter
   {
     out << "lat_lon_reset_counter: ";
@@ -92,13 +85,6 @@ inline void to_flow_style_yaml(
   {
     out << "alt_reset_counter: ";
     rosidl_generator_traits::value_to_yaml(msg.alt_reset_counter, out);
-    out << ", ";
-  }
-
-  // member: terrain_reset_counter
-  {
-    out << "terrain_reset_counter: ";
-    rosidl_generator_traits::value_to_yaml(msg.terrain_reset_counter, out);
     out << ", ";
   }
 
@@ -212,16 +198,6 @@ inline void to_block_style_yaml(
     out << "\n";
   }
 
-  // member: delta_terrain
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "delta_terrain: ";
-    rosidl_generator_traits::value_to_yaml(msg.delta_terrain, out);
-    out << "\n";
-  }
-
   // member: lat_lon_reset_counter
   {
     if (indentation > 0) {
@@ -239,16 +215,6 @@ inline void to_block_style_yaml(
     }
     out << "alt_reset_counter: ";
     rosidl_generator_traits::value_to_yaml(msg.alt_reset_counter, out);
-    out << "\n";
-  }
-
-  // member: terrain_reset_counter
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "terrain_reset_counter: ";
-    rosidl_generator_traits::value_to_yaml(msg.terrain_reset_counter, out);
     out << "\n";
   }
 

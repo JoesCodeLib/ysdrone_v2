@@ -238,29 +238,14 @@ static bool _VehicleLocalPosition__cdr_serialize(
     cdr << ros_message->ref_alt;
   }
 
-  // Field name: dist_bottom_valid
-  {
-    cdr << (ros_message->dist_bottom_valid ? true : false);
-  }
-
   // Field name: dist_bottom
   {
     cdr << ros_message->dist_bottom;
   }
 
-  // Field name: dist_bottom_var
+  // Field name: dist_bottom_valid
   {
-    cdr << ros_message->dist_bottom_var;
-  }
-
-  // Field name: delta_dist_bottom
-  {
-    cdr << ros_message->delta_dist_bottom;
-  }
-
-  // Field name: dist_bottom_reset_counter
-  {
-    cdr << ros_message->dist_bottom_reset_counter;
+    cdr << (ros_message->dist_bottom_valid ? true : false);
   }
 
   // Field name: dist_bottom_sensor_bitfield
@@ -528,31 +513,16 @@ static bool _VehicleLocalPosition__cdr_deserialize(
     cdr >> ros_message->ref_alt;
   }
 
-  // Field name: dist_bottom_valid
-  {
-    uint8_t tmp;
-    cdr >> tmp;
-    ros_message->dist_bottom_valid = tmp ? true : false;
-  }
-
   // Field name: dist_bottom
   {
     cdr >> ros_message->dist_bottom;
   }
 
-  // Field name: dist_bottom_var
+  // Field name: dist_bottom_valid
   {
-    cdr >> ros_message->dist_bottom_var;
-  }
-
-  // Field name: delta_dist_bottom
-  {
-    cdr >> ros_message->delta_dist_bottom;
-  }
-
-  // Field name: dist_bottom_reset_counter
-  {
-    cdr >> ros_message->dist_bottom_reset_counter;
+    uint8_t tmp;
+    cdr >> tmp;
+    ros_message->dist_bottom_valid = tmp ? true : false;
   }
 
   // Field name: dist_bottom_sensor_bitfield
@@ -852,33 +822,15 @@ size_t get_serialized_size_px4_msgs__msg__VehicleLocalPosition(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // field.name dist_bottom_valid
-  {
-    size_t item_size = sizeof(ros_message->dist_bottom_valid);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
   // field.name dist_bottom
   {
     size_t item_size = sizeof(ros_message->dist_bottom);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // field.name dist_bottom_var
+  // field.name dist_bottom_valid
   {
-    size_t item_size = sizeof(ros_message->dist_bottom_var);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name delta_dist_bottom
-  {
-    size_t item_size = sizeof(ros_message->delta_dist_bottom);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name dist_bottom_reset_counter
-  {
-    size_t item_size = sizeof(ros_message->dist_bottom_reset_counter);
+    size_t item_size = sizeof(ros_message->dist_bottom_valid);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -1255,13 +1207,6 @@ size_t max_serialized_size_px4_msgs__msg__VehicleLocalPosition(
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
   }
-  // member: dist_bottom_valid
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint8_t);
-    current_alignment += array_size * sizeof(uint8_t);
-  }
   // member: dist_bottom
   {
     size_t array_size = 1;
@@ -1270,23 +1215,7 @@ size_t max_serialized_size_px4_msgs__msg__VehicleLocalPosition(
     current_alignment += array_size * sizeof(uint32_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
   }
-  // member: dist_bottom_var
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-  // member: delta_dist_bottom
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-  // member: dist_bottom_reset_counter
+  // member: dist_bottom_valid
   {
     size_t array_size = 1;
 

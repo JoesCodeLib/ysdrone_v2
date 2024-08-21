@@ -22,7 +22,7 @@ typedef struct px4_msgs__msg__VehicleRatesSetpoint
 {
   /// time since system start (microseconds)
   uint64_t timestamp;
-  /// body angular rates in FRD frame
+  /// body angular rates in NED frame
   /// [rad/s] roll rate setpoint
   float roll;
   /// pitch rate setpoint

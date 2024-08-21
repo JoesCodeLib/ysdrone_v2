@@ -30,7 +30,7 @@ class MissionOne(Node):
             '/px4_visualizer/vehicle_pose',
             self.position_callback,
             10
-        )
+        ) #should be fixed to local position
 
         # Publishers
         self.velocity_publisher = self.create_publisher(
@@ -63,12 +63,6 @@ class MissionOne(Node):
             qos_profile
         )
 
-        # self.commander_publisher = self.create_publisher(
-        #     VehicleCommand,
-        #     '/fmu/in/vehicle_command',
-        #     10
-        # )
-
 
         # MAIN LOGIC 
 
@@ -80,34 +74,33 @@ class MissionOne(Node):
         self.current_position = {'x': 0.0, 'y': 0.0, 'z': 0.0}
 
         self.waypoints = [
-            {'x': 0.0, 'y': 0.0, 'z': 8.0}, #WP1
-            {'x': 248.33, 'y': 111.53, 'z': 50.0}, #WP2
-            {'x': -100.17, 'y': 240.18, 'z': 50.0}, #WP3
-            {'x': -31.75, 'y': 96.96, 'z': 10.0}, #WP4
-            {'x': 53.25, 'y': -91.07, 'z': 10.0}, #WP5
-            {'x': 142.13, 'y': -96.41, 'z': 20.0}, #WP6
-            {'x': 217.31, 'y': -162.45, 'z': 30.0}, #WP7
-            {'x': 175.19, 'y': -185.25, 'z': 50.0}, #WP8
-            {'x': 18.82, 'y': -94.74, 'z': 8.0}, #WP9
-            {'x': 0.0, 'y': 0.0, 'z': 8.0} #WP10
+            {'x': 0.0, 'y': 0.0, 'z': 20.0} #WP1
+            # {'x': 248.33, 'y': 111.53, 'z': 50.0}, #WP2
+            # {'x': -100.17, 'y': 240.18, 'z': 50.0}, #WP3
+            # {'x': -31.75, 'y': 96.96, 'z': 32.0}, #WP4
+            # {'x': 53.25, 'y': -91.07, 'z': 10.0}, #WP5
+            # {'x': 142.13, 'y': -96.41, 'z': 20.0}, #WP6
+            # {'x': 217.31, 'y': -162.45, 'z': 30.0}, #WP7
+            # {'x': 175.19, 'y': -185.25, 'z': 50.0}, #WP8
+            # {'x': 18.82, 'y': -94.74, 'z': 30.0} #WP9
         ]
 
-        self.curr_way_index = 0
-        self.position_tolerance = 10.0
-        self.s_position_tolerance = 30.0
+        self.curr_way_index = 0 #change
+        self.position_tolerance = 1.0
+        self.s_position_tolerance = 35.0
         self.vtol_count = 0
         self.s_waypoint_ind = 0
         self.max_s_waypoint = self.s_way_len(self.csv_data)
         self.curr_height = 0.0
+        self.actual_height = 0.0
+        self.m_target = self.waypoints[0]
+        self.timerCount = 0
 
         time.sleep(5)
         self.get_logger().info("Main launched")
         self.arm_drone(True)
         time.sleep(10)
         self.navigate_waypoints()
-
-
-
 
 
     def position_callback(self, msg):
@@ -167,92 +160,52 @@ class MissionOne(Node):
         vtol_mmg = Bool()
         vtol_mmg.data = marm
         self.vtol_publisher_mc.publish(vtol_mmg)
-        self.get_logger().info("Fuck. Go back")
+        self.get_logger().info("Go MC")
 
     def navigate_waypoints(self):
         self.wp_timer = self.create_timer(0.01, self.navigate_waypoint_callback)
 
-    # def navigate_waypoint_callback(self):
-    #     if self.curr_way_index < len(self.waypoints):
-    #         target = self.waypoints[self.curr_way_index]
-    #         if self.is_waypoint_reached(target):
-    #             if self.is_waypoint_reached(target) and self.curr_way_index == 1 and self.vtol_count == 1:
-    #                 self.arm_mc(True)
-    #                 self.vtol_count += 1
-    #             elif self.is_waypoint_reached(target) and self.curr_way_index == 2 and self.vtol_count == 3:
-    #                 self.arm_mc(True)
-    #                 self.vtol_count += 1
-    #             self.get_logger().info(f"Waypoint {self.curr_way_index} reached")
-    #             self.curr_way_index += 1
-    #         elif (self.current_position['y'] < -10.0) and self.curr_way_index == 1 and self.vtol_count == 0:
-    #             self.arm_vtol(True)
-    #             self.vtol_count += 1
-    #         elif (self.current_position['x'] > 10) and self.curr_way_index == 2 and self.vtol_count == 2:
-    #             self.arm_vtol(True)
-    #             self.vtol_count += 1
-    #         else:
-    #             twist = self.calculate_velocity_command(target)
-    #             self.velocity_publisher.publish(twist)
-                
-
-    #     else:
-    #         self.get_logger().info("All waypoints reached")
-    #         self.disarm_drone(False)
-    #         self.destroy_timer(self.wp_timer)
-
-    # def navigate_waypoint_callback(self):
-    #     if self.curr_way_index < len(self.waypoints):
-    #         target = self.waypoints[self.curr_way_index]
-    #         if self.is_waypoint_reached(target):
-    #             if self.is_waypoint_reached(target) and self.curr_way_index == 1 and self.vtol_count == 1:
-    #                 self.arm_mc(True)
-    #                 self.vtol_count += 1
-    #             elif self.is_waypoint_reached(target) and self.curr_way_index == 2 and self.vtol_count == 3:
-    #                 self.arm_mc(True)
-    #                 self.vtol_count += 1
-    #             self.get_logger().info(f"Waypoint {self.curr_way_index} reached")
-    #             self.curr_way_index += 1
-    #         elif (self.current_position['y'] < -10.0) and self.curr_way_index == 1 and self.vtol_count == 0:
-    #             self.arm_vtol(True)
-    #             self.vtol_count += 1
-    #         elif (self.current_position['x'] > 10) and self.curr_way_index == 2 and self.vtol_count == 2:
-    #             self.arm_vtol(True)
-    #             self.vtol_count += 1
-    #         else:
-    #             pose = self.calculate_position_command(target)
-    #             self.position_publisher.publish(pose)
-
-    #     else:
-    #         self.get_logger().info("All waypoints reached")
-    #         self.disarm_drone(False)
-    #         self.destroy_timer(self.wp_timer)
 
     def navigate_waypoint_callback(self):
+        # m_target = big target
         if self.s_waypoint_ind < self.max_s_waypoint:
-            target = self.way_data(self.csv_data, self.s_waypoint_ind, self.curr_height)
-            m_target = self.waypoints[self.curr_way_index]
-            self.curr_height = m_target['z']
-            if self.s_is_waypoint_reached(target):
-                if self.is_waypoint_reached(m_target):
-                    self.curr_way_index += 1
-                    self.get_logger().info(f"Waypoint {self.curr_way_index} reached")
-                self.s_waypoint_ind += 1
-                if (self.curr_way_index == 1):
-                    self.s_position_tolerance = 35.0
-                else:
-                    self.s_position_tolerance = 30.0
-            elif (self.current_position['x'] > 25.0) and self.curr_way_index == 1 and self.vtol_count == 0:
-                self.arm_vtol(True)
-                self.vtol_count += 1
+            self.curr_height = self.m_target['z']
+            if self.actual_height != self.curr_height:
+                adjustment = 0.05 if self.actual_height < self.curr_height else -0.05
+                self.actual_height = round(self.actual_height + adjustment, 2)
+
+
+            self.m_target = self.waypoints[self.curr_way_index]
+
+            if self.curr_way_index == 0:
+                target = self.waypoints[0]
+                if self.is_waypoint_reached(self.m_target):
+                        self.curr_way_index += 1
+                        self.get_logger().info(f"Waypoint {self.curr_way_index} reached")
+                else: 
+                    pose = self.calculate_position_command_f(target)
+                    self.position_publisher.publish(pose)
+
+            elif self.curr_way_index != 0:
+                target = self.way_data(self.csv_data, self.s_waypoint_ind, self.actual_height)
+                if self.s_is_waypoint_reached(target):
+                    if self.is_waypoint_reached(self.m_target):
+                        self.curr_way_index += 1
+                        self.get_logger().info(f"Waypoint {self.curr_way_index} reached")
+                    self.s_waypoint_ind += 1
+                if self.timerCount == 200 and self.curr_way_index == 1 and self.vtol_count == 0:
+                    self.arm_vtol(True)
+                    self.vtol_count += 1
             
-            else:
-                pose = self.calculate_position_command(target)
-                self.position_publisher.publish(pose)
-                
+                else:
+                    pose = self.calculate_position_command(target)
+                    self.position_publisher.publish(pose)
+                    if self.curr_way_index == 1:
+                        self.timerCount += 1
 
         else:
             self.get_logger().info("All waypoints reached")
-            self.disarm_drone(False)
+            self.arm_mc(True)
             self.destroy_timer(self.wp_timer)
 
     def calculate_velocity_command(self, target):
@@ -280,8 +233,8 @@ class MissionOne(Node):
     def calculate_position_command(self, target):
         pose = PoseStamped()
         pose.header.stamp = self.get_clock().now().to_msg()
-        pose.pose.position.x = target['x']
-        pose.pose.position.y = target['y']
+        pose.pose.position.x = target['y']
+        pose.pose.position.y = target['x']
         pose.pose.position.z = target['z']
 
         # Calculate desired yaw
@@ -290,7 +243,21 @@ class MissionOne(Node):
         desired_yaw = math.atan2(error_y, error_x)
 
         # Set yaw in Euler angles directly
-        pose.pose.orientation = self.euler_to_quaternion(0, 0, desired_yaw)
+        pose.pose.orientation.x = desired_yaw + 1.5708
+        pose.pose.orientation.y = 0.0
+        pose.pose.orientation.z = 0.0
+        pose.pose.orientation.w = 0.0
+
+        return pose
+    
+    def calculate_position_command_f(self, target):
+        pose = PoseStamped()
+        pose.header.stamp = self.get_clock().now().to_msg()
+        pose.pose.position.x = target['y']
+        pose.pose.position.y = target['x']
+        pose.pose.position.z = target['z']
+
+        pose.pose.orientation.x = 1.5708
 
         return pose
 
@@ -313,21 +280,29 @@ class MissionOne(Node):
         return quaternion
 
     def is_waypoint_reached(self, target):
-        x_dist = abs(target['x'] - self.current_position['x'])
-        y_dist = abs(target['y'] - self.current_position['y'])
-        z_dist = abs(target['z'] - self.current_position['z'])
+        enu_current_position_x = -self.current_position['y']  
+        enu_current_position_y = self.current_position['x']  
+        enu_current_position_z = self.current_position['z'] 
+
+        x_dist = abs(target['x'] - enu_current_position_x)
+        y_dist = abs(target['y'] - enu_current_position_y)
+        z_dist = abs(target['z'] - enu_current_position_z)
 
         return (x_dist < self.position_tolerance and
                 y_dist < self.position_tolerance and
                 z_dist < self.position_tolerance)
-    
+
     def s_is_waypoint_reached(self, target):
-        x_dist = abs(target['x'] - self.current_position['x'])
-        y_dist = abs(target['y'] - self.current_position['y'])
-        z_dist = abs(target['z'] - self.current_position['z'])
+
+        enu_current_position_x = -self.current_position['y']  
+        enu_current_position_y = self.current_position['x']  
+
+        x_dist = abs(target['x'] - enu_current_position_x)
+        y_dist = abs(target['y'] - enu_current_position_y)
 
         return (x_dist < self.s_position_tolerance and
                 y_dist < self.s_position_tolerance)
+
     
 
 
@@ -335,6 +310,7 @@ def main(args=None):
     rclpy.init(args=args)
     mission1node = MissionOne()
     rclpy.spin(mission1node)
+    print("node destroyed")
     mission1node.destroy_node()
     rclpy.shutdown()
 

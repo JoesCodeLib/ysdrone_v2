@@ -41,14 +41,10 @@ typedef struct px4_msgs__msg__VehicleGlobalPosition
   float alt_ellipsoid;
   /// Reset delta for altitude
   float delta_alt;
-  /// Reset delta for terrain
-  float delta_terrain;
   /// Counter for reset events on horizontal position coordinates
   uint8_t lat_lon_reset_counter;
   /// Counter for reset events on altitude
   uint8_t alt_reset_counter;
-  /// Counter for reset events on terrain
-  uint8_t terrain_reset_counter;
   /// Standard deviation of horizontal position error, (metres)
   float eph;
   /// Standard deviation of vertical position error, (metres)

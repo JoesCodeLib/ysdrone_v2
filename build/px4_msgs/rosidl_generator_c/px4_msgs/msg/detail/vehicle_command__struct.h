@@ -881,12 +881,6 @@ enum
   px4_msgs__msg__VehicleCommand__VEHICLE_CMD_EXTERNAL_POSITION_ESTIMATE = 43003
 };
 
-/// Constant 'VEHICLE_CMD_EXTERNAL_WIND_ESTIMATE'.
-enum
-{
-  px4_msgs__msg__VehicleCommand__VEHICLE_CMD_EXTERNAL_WIND_ESTIMATE = 43004
-};
-
 /// Constant 'VEHICLE_CMD_PX4_INTERNAL_START'.
 /**
   * PX4 vehicle commands (beyond 16 bit mavlink commands)

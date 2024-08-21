@@ -59,7 +59,6 @@ from px4_msgs.msg._flight_phase_estimation import FlightPhaseEstimation  # noqa:
 from px4_msgs.msg._follow_target import FollowTarget  # noqa: F401
 from px4_msgs.msg._follow_target_estimator import FollowTargetEstimator  # noqa: F401
 from px4_msgs.msg._follow_target_status import FollowTargetStatus  # noqa: F401
-from px4_msgs.msg._fuel_tank_status import FuelTankStatus  # noqa: F401
 from px4_msgs.msg._generator_status import GeneratorStatus  # noqa: F401
 from px4_msgs.msg._geofence_result import GeofenceResult  # noqa: F401
 from px4_msgs.msg._geofence_status import GeofenceStatus  # noqa: F401
@@ -140,8 +139,6 @@ from px4_msgs.msg._rc_channels import RcChannels  # noqa: F401
 from px4_msgs.msg._rc_parameter_map import RcParameterMap  # noqa: F401
 from px4_msgs.msg._register_ext_component_reply import RegisterExtComponentReply  # noqa: F401
 from px4_msgs.msg._register_ext_component_request import RegisterExtComponentRequest  # noqa: F401
-from px4_msgs.msg._rover_ackermann_guidance_status import RoverAckermannGuidanceStatus  # noqa: F401
-from px4_msgs.msg._rover_ackermann_status import RoverAckermannStatus  # noqa: F401
 from px4_msgs.msg._rpm import Rpm  # noqa: F401
 from px4_msgs.msg._rtl_status import RtlStatus  # noqa: F401
 from px4_msgs.msg._rtl_time_estimate import RtlTimeEstimate  # noqa: F401

@@ -24,10 +24,8 @@ px4_msgs__msg__VehicleGlobalPosition__init(px4_msgs__msg__VehicleGlobalPosition 
   // alt
   // alt_ellipsoid
   // delta_alt
-  // delta_terrain
   // lat_lon_reset_counter
   // alt_reset_counter
-  // terrain_reset_counter
   // eph
   // epv
   // terrain_alt
@@ -49,10 +47,8 @@ px4_msgs__msg__VehicleGlobalPosition__fini(px4_msgs__msg__VehicleGlobalPosition 
   // alt
   // alt_ellipsoid
   // delta_alt
-  // delta_terrain
   // lat_lon_reset_counter
   // alt_reset_counter
-  // terrain_reset_counter
   // eph
   // epv
   // terrain_alt
@@ -94,20 +90,12 @@ px4_msgs__msg__VehicleGlobalPosition__are_equal(const px4_msgs__msg__VehicleGlob
   if (lhs->delta_alt != rhs->delta_alt) {
     return false;
   }
-  // delta_terrain
-  if (lhs->delta_terrain != rhs->delta_terrain) {
-    return false;
-  }
   // lat_lon_reset_counter
   if (lhs->lat_lon_reset_counter != rhs->lat_lon_reset_counter) {
     return false;
   }
   // alt_reset_counter
   if (lhs->alt_reset_counter != rhs->alt_reset_counter) {
-    return false;
-  }
-  // terrain_reset_counter
-  if (lhs->terrain_reset_counter != rhs->terrain_reset_counter) {
     return false;
   }
   // eph
@@ -155,14 +143,10 @@ px4_msgs__msg__VehicleGlobalPosition__copy(
   output->alt_ellipsoid = input->alt_ellipsoid;
   // delta_alt
   output->delta_alt = input->delta_alt;
-  // delta_terrain
-  output->delta_terrain = input->delta_terrain;
   // lat_lon_reset_counter
   output->lat_lon_reset_counter = input->lat_lon_reset_counter;
   // alt_reset_counter
   output->alt_reset_counter = input->alt_reset_counter;
-  // terrain_reset_counter
-  output->terrain_reset_counter = input->terrain_reset_counter;
   // eph
   output->eph = input->eph;
   // epv

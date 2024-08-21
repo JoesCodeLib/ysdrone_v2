@@ -64,10 +64,8 @@ class VehicleGlobalPosition(metaclass=Metaclass_VehicleGlobalPosition):
         '_alt',
         '_alt_ellipsoid',
         '_delta_alt',
-        '_delta_terrain',
         '_lat_lon_reset_counter',
         '_alt_reset_counter',
-        '_terrain_reset_counter',
         '_eph',
         '_epv',
         '_terrain_alt',
@@ -83,10 +81,8 @@ class VehicleGlobalPosition(metaclass=Metaclass_VehicleGlobalPosition):
         'alt': 'float',
         'alt_ellipsoid': 'float',
         'delta_alt': 'float',
-        'delta_terrain': 'float',
         'lat_lon_reset_counter': 'uint8',
         'alt_reset_counter': 'uint8',
-        'terrain_reset_counter': 'uint8',
         'eph': 'float',
         'epv': 'float',
         'terrain_alt': 'float',
@@ -102,8 +98,6 @@ class VehicleGlobalPosition(metaclass=Metaclass_VehicleGlobalPosition):
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
-        rosidl_parser.definition.BasicType('uint8'),  # noqa: E501
         rosidl_parser.definition.BasicType('uint8'),  # noqa: E501
         rosidl_parser.definition.BasicType('uint8'),  # noqa: E501
         rosidl_parser.definition.BasicType('float'),  # noqa: E501
@@ -124,10 +118,8 @@ class VehicleGlobalPosition(metaclass=Metaclass_VehicleGlobalPosition):
         self.alt = kwargs.get('alt', float())
         self.alt_ellipsoid = kwargs.get('alt_ellipsoid', float())
         self.delta_alt = kwargs.get('delta_alt', float())
-        self.delta_terrain = kwargs.get('delta_terrain', float())
         self.lat_lon_reset_counter = kwargs.get('lat_lon_reset_counter', int())
         self.alt_reset_counter = kwargs.get('alt_reset_counter', int())
-        self.terrain_reset_counter = kwargs.get('terrain_reset_counter', int())
         self.eph = kwargs.get('eph', float())
         self.epv = kwargs.get('epv', float())
         self.terrain_alt = kwargs.get('terrain_alt', float())
@@ -177,13 +169,9 @@ class VehicleGlobalPosition(metaclass=Metaclass_VehicleGlobalPosition):
             return False
         if self.delta_alt != other.delta_alt:
             return False
-        if self.delta_terrain != other.delta_terrain:
-            return False
         if self.lat_lon_reset_counter != other.lat_lon_reset_counter:
             return False
         if self.alt_reset_counter != other.alt_reset_counter:
-            return False
-        if self.terrain_reset_counter != other.terrain_reset_counter:
             return False
         if self.eph != other.eph:
             return False
@@ -308,21 +296,6 @@ class VehicleGlobalPosition(metaclass=Metaclass_VehicleGlobalPosition):
         self._delta_alt = value
 
     @builtins.property
-    def delta_terrain(self):
-        """Message field 'delta_terrain'."""
-        return self._delta_terrain
-
-    @delta_terrain.setter
-    def delta_terrain(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, float), \
-                "The 'delta_terrain' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'delta_terrain' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._delta_terrain = value
-
-    @builtins.property
     def lat_lon_reset_counter(self):
         """Message field 'lat_lon_reset_counter'."""
         return self._lat_lon_reset_counter
@@ -351,21 +324,6 @@ class VehicleGlobalPosition(metaclass=Metaclass_VehicleGlobalPosition):
             assert value >= 0 and value < 256, \
                 "The 'alt_reset_counter' field must be an unsigned integer in [0, 255]"
         self._alt_reset_counter = value
-
-    @builtins.property
-    def terrain_reset_counter(self):
-        """Message field 'terrain_reset_counter'."""
-        return self._terrain_reset_counter
-
-    @terrain_reset_counter.setter
-    def terrain_reset_counter(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, int), \
-                "The 'terrain_reset_counter' field must be of type 'int'"
-            assert value >= 0 and value < 256, \
-                "The 'terrain_reset_counter' field must be an unsigned integer in [0, 255]"
-        self._terrain_reset_counter = value
 
     @builtins.property
     def eph(self):

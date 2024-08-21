@@ -63,12 +63,12 @@ struct EstimatorStatusFlags_
       this->cs_fuse_aspd = false;
       this->cs_gnd_effect = false;
       this->cs_rng_stuck = false;
-      this->cs_gnss_yaw = false;
+      this->cs_gps_yaw = false;
       this->cs_mag_aligned_in_flight = false;
       this->cs_ev_vel = false;
       this->cs_synthetic_mag_z = false;
       this->cs_vehicle_at_rest = false;
-      this->cs_gnss_yaw_fault = false;
+      this->cs_gps_yaw_fault = false;
       this->cs_rng_fault = false;
       this->cs_inertial_dead_reckoning = false;
       this->cs_wind_dead_reckoning = false;
@@ -80,8 +80,6 @@ struct EstimatorStatusFlags_
       this->cs_ev_yaw_fault = false;
       this->cs_mag_heading_consistent = false;
       this->cs_aux_gpos = false;
-      this->cs_rng_terrain = false;
-      this->cs_opt_flow_terrain = false;
       this->fault_status_changes = 0ul;
       this->fs_bad_mag_x = false;
       this->fs_bad_mag_y = false;
@@ -140,12 +138,12 @@ struct EstimatorStatusFlags_
       this->cs_fuse_aspd = false;
       this->cs_gnd_effect = false;
       this->cs_rng_stuck = false;
-      this->cs_gnss_yaw = false;
+      this->cs_gps_yaw = false;
       this->cs_mag_aligned_in_flight = false;
       this->cs_ev_vel = false;
       this->cs_synthetic_mag_z = false;
       this->cs_vehicle_at_rest = false;
-      this->cs_gnss_yaw_fault = false;
+      this->cs_gps_yaw_fault = false;
       this->cs_rng_fault = false;
       this->cs_inertial_dead_reckoning = false;
       this->cs_wind_dead_reckoning = false;
@@ -157,8 +155,6 @@ struct EstimatorStatusFlags_
       this->cs_ev_yaw_fault = false;
       this->cs_mag_heading_consistent = false;
       this->cs_aux_gpos = false;
-      this->cs_rng_terrain = false;
-      this->cs_opt_flow_terrain = false;
       this->fault_status_changes = 0ul;
       this->fs_bad_mag_x = false;
       this->fs_bad_mag_y = false;
@@ -262,9 +258,9 @@ struct EstimatorStatusFlags_
   using _cs_rng_stuck_type =
     bool;
   _cs_rng_stuck_type cs_rng_stuck;
-  using _cs_gnss_yaw_type =
+  using _cs_gps_yaw_type =
     bool;
-  _cs_gnss_yaw_type cs_gnss_yaw;
+  _cs_gps_yaw_type cs_gps_yaw;
   using _cs_mag_aligned_in_flight_type =
     bool;
   _cs_mag_aligned_in_flight_type cs_mag_aligned_in_flight;
@@ -277,9 +273,9 @@ struct EstimatorStatusFlags_
   using _cs_vehicle_at_rest_type =
     bool;
   _cs_vehicle_at_rest_type cs_vehicle_at_rest;
-  using _cs_gnss_yaw_fault_type =
+  using _cs_gps_yaw_fault_type =
     bool;
-  _cs_gnss_yaw_fault_type cs_gnss_yaw_fault;
+  _cs_gps_yaw_fault_type cs_gps_yaw_fault;
   using _cs_rng_fault_type =
     bool;
   _cs_rng_fault_type cs_rng_fault;
@@ -313,12 +309,6 @@ struct EstimatorStatusFlags_
   using _cs_aux_gpos_type =
     bool;
   _cs_aux_gpos_type cs_aux_gpos;
-  using _cs_rng_terrain_type =
-    bool;
-  _cs_rng_terrain_type cs_rng_terrain;
-  using _cs_opt_flow_terrain_type =
-    bool;
-  _cs_opt_flow_terrain_type cs_opt_flow_terrain;
   using _fault_status_changes_type =
     uint32_t;
   _fault_status_changes_type fault_status_changes;
@@ -543,10 +533,10 @@ struct EstimatorStatusFlags_
     this->cs_rng_stuck = _arg;
     return *this;
   }
-  Type & set__cs_gnss_yaw(
+  Type & set__cs_gps_yaw(
     const bool & _arg)
   {
-    this->cs_gnss_yaw = _arg;
+    this->cs_gps_yaw = _arg;
     return *this;
   }
   Type & set__cs_mag_aligned_in_flight(
@@ -573,10 +563,10 @@ struct EstimatorStatusFlags_
     this->cs_vehicle_at_rest = _arg;
     return *this;
   }
-  Type & set__cs_gnss_yaw_fault(
+  Type & set__cs_gps_yaw_fault(
     const bool & _arg)
   {
-    this->cs_gnss_yaw_fault = _arg;
+    this->cs_gps_yaw_fault = _arg;
     return *this;
   }
   Type & set__cs_rng_fault(
@@ -643,18 +633,6 @@ struct EstimatorStatusFlags_
     const bool & _arg)
   {
     this->cs_aux_gpos = _arg;
-    return *this;
-  }
-  Type & set__cs_rng_terrain(
-    const bool & _arg)
-  {
-    this->cs_rng_terrain = _arg;
-    return *this;
-  }
-  Type & set__cs_opt_flow_terrain(
-    const bool & _arg)
-  {
-    this->cs_opt_flow_terrain = _arg;
     return *this;
   }
   Type & set__fault_status_changes(
@@ -919,7 +897,7 @@ struct EstimatorStatusFlags_
     if (this->cs_rng_stuck != other.cs_rng_stuck) {
       return false;
     }
-    if (this->cs_gnss_yaw != other.cs_gnss_yaw) {
+    if (this->cs_gps_yaw != other.cs_gps_yaw) {
       return false;
     }
     if (this->cs_mag_aligned_in_flight != other.cs_mag_aligned_in_flight) {
@@ -934,7 +912,7 @@ struct EstimatorStatusFlags_
     if (this->cs_vehicle_at_rest != other.cs_vehicle_at_rest) {
       return false;
     }
-    if (this->cs_gnss_yaw_fault != other.cs_gnss_yaw_fault) {
+    if (this->cs_gps_yaw_fault != other.cs_gps_yaw_fault) {
       return false;
     }
     if (this->cs_rng_fault != other.cs_rng_fault) {
@@ -968,12 +946,6 @@ struct EstimatorStatusFlags_
       return false;
     }
     if (this->cs_aux_gpos != other.cs_aux_gpos) {
-      return false;
-    }
-    if (this->cs_rng_terrain != other.cs_rng_terrain) {
-      return false;
-    }
-    if (this->cs_opt_flow_terrain != other.cs_opt_flow_terrain) {
       return false;
     }
     if (this->fault_status_changes != other.fault_status_changes) {

@@ -200,10 +200,10 @@ inline void to_flow_style_yaml(
     out << ", ";
   }
 
-  // member: cs_gnss_yaw
+  // member: cs_gps_yaw
   {
-    out << "cs_gnss_yaw: ";
-    rosidl_generator_traits::value_to_yaml(msg.cs_gnss_yaw, out);
+    out << "cs_gps_yaw: ";
+    rosidl_generator_traits::value_to_yaml(msg.cs_gps_yaw, out);
     out << ", ";
   }
 
@@ -235,10 +235,10 @@ inline void to_flow_style_yaml(
     out << ", ";
   }
 
-  // member: cs_gnss_yaw_fault
+  // member: cs_gps_yaw_fault
   {
-    out << "cs_gnss_yaw_fault: ";
-    rosidl_generator_traits::value_to_yaml(msg.cs_gnss_yaw_fault, out);
+    out << "cs_gps_yaw_fault: ";
+    rosidl_generator_traits::value_to_yaml(msg.cs_gps_yaw_fault, out);
     out << ", ";
   }
 
@@ -316,20 +316,6 @@ inline void to_flow_style_yaml(
   {
     out << "cs_aux_gpos: ";
     rosidl_generator_traits::value_to_yaml(msg.cs_aux_gpos, out);
-    out << ", ";
-  }
-
-  // member: cs_rng_terrain
-  {
-    out << "cs_rng_terrain: ";
-    rosidl_generator_traits::value_to_yaml(msg.cs_rng_terrain, out);
-    out << ", ";
-  }
-
-  // member: cs_opt_flow_terrain
-  {
-    out << "cs_opt_flow_terrain: ";
-    rosidl_generator_traits::value_to_yaml(msg.cs_opt_flow_terrain, out);
     out << ", ";
   }
 
@@ -756,13 +742,13 @@ inline void to_block_style_yaml(
     out << "\n";
   }
 
-  // member: cs_gnss_yaw
+  // member: cs_gps_yaw
   {
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "cs_gnss_yaw: ";
-    rosidl_generator_traits::value_to_yaml(msg.cs_gnss_yaw, out);
+    out << "cs_gps_yaw: ";
+    rosidl_generator_traits::value_to_yaml(msg.cs_gps_yaw, out);
     out << "\n";
   }
 
@@ -806,13 +792,13 @@ inline void to_block_style_yaml(
     out << "\n";
   }
 
-  // member: cs_gnss_yaw_fault
+  // member: cs_gps_yaw_fault
   {
     if (indentation > 0) {
       out << std::string(indentation, ' ');
     }
-    out << "cs_gnss_yaw_fault: ";
-    rosidl_generator_traits::value_to_yaml(msg.cs_gnss_yaw_fault, out);
+    out << "cs_gps_yaw_fault: ";
+    rosidl_generator_traits::value_to_yaml(msg.cs_gps_yaw_fault, out);
     out << "\n";
   }
 
@@ -923,26 +909,6 @@ inline void to_block_style_yaml(
     }
     out << "cs_aux_gpos: ";
     rosidl_generator_traits::value_to_yaml(msg.cs_aux_gpos, out);
-    out << "\n";
-  }
-
-  // member: cs_rng_terrain
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "cs_rng_terrain: ";
-    rosidl_generator_traits::value_to_yaml(msg.cs_rng_terrain, out);
-    out << "\n";
-  }
-
-  // member: cs_opt_flow_terrain
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "cs_opt_flow_terrain: ";
-    rosidl_generator_traits::value_to_yaml(msg.cs_opt_flow_terrain, out);
     out << "\n";
   }
 

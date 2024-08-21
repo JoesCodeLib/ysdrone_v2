@@ -38,9 +38,6 @@ module px4_msgs {
         "9 : maximum allowed vertical velocity discrepancy fail")
       const uint8 GPS_CHECK_FAIL_MAX_VERT_SPD_ERR = 9;
       @verbatim (language="comment", text=
-        "10 : GPS signal is spoofed")
-      const uint8 GPS_CHECK_FAIL_SPOOFED = 10;
-      @verbatim (language="comment", text=
         "0 - true if the filter tilt alignment is complete")
       const uint8 CS_TILT_ALIGN = 0;
       @verbatim (language="comment", text=
@@ -180,31 +177,47 @@ module px4_msgs {
       float pos_vert_accuracy;
 
       @verbatim (language="comment", text=
-        "low-pass filtered ratio of the largest heading innovation component to the innovation test limit")
-      float hdg_test_ratio;
+        "Bitmask to indicate pass/fail status of innovation consistency checks")
+      uint16 innovation_check_flags;
 
       @verbatim (language="comment", text=
-        "low-pass filtered ratio of the largest velocity innovation component to the innovation test limit")
+        "0 - true if velocity observations have been rejected" "\n"
+        "1 - true if horizontal position observations have been rejected" "\n"
+        "2 - true if true if vertical position observations have been rejected" "\n"
+        "3 - true if the X magnetometer observation has been rejected" "\n"
+        "4 - true if the Y magnetometer observation has been rejected" "\n"
+        "5 - true if the Z magnetometer observation has been rejected" "\n"
+        "6 - true if the yaw observation has been rejected" "\n"
+        "7 - true if the airspeed observation has been rejected" "\n"
+        "8 - true if the synthetic sideslip observation has been rejected" "\n"
+        "9 - true if the height above ground observation has been rejected" "\n"
+        "10 - true if the X optical flow observation has been rejected" "\n"
+        "11 - true if the Y optical flow observation has been rejected" "\n"
+        "ratio of the largest magnetometer innovation component to the innovation test limit")
+      float mag_test_ratio;
+
+      @verbatim (language="comment", text=
+        "ratio of the largest velocity innovation component to the innovation test limit")
       float vel_test_ratio;
 
       @verbatim (language="comment", text=
-        "low-pass filtered ratio of the largest horizontal position innovation component to the innovation test limit")
+        "ratio of the largest horizontal position innovation component to the innovation test limit")
       float pos_test_ratio;
 
       @verbatim (language="comment", text=
-        "low-pass filtered ratio of the vertical position innovation to the innovation test limit")
+        "ratio of the vertical position innovation to the innovation test limit")
       float hgt_test_ratio;
 
       @verbatim (language="comment", text=
-        "low-pass filtered ratio of the true airspeed innovation to the innovation test limit")
+        "ratio of the true airspeed innovation to the innovation test limit")
       float tas_test_ratio;
 
       @verbatim (language="comment", text=
-        "low-pass filtered ratio of the height above ground innovation to the innovation test limit")
+        "ratio of the height above ground innovation to the innovation test limit")
       float hagl_test_ratio;
 
       @verbatim (language="comment", text=
-        "low-pass filtered ratio of the synthetic sideslip innovation to the innovation test limit")
+        "ratio of the synthetic sideslip innovation to the innovation test limit")
       float beta_test_ratio;
 
       @verbatim (language="comment", text=
@@ -249,13 +262,11 @@ module px4_msgs {
 
       boolean pre_flt_fail_innov_heading;
 
-      boolean pre_flt_fail_innov_height;
-
-      boolean pre_flt_fail_innov_pos_horiz;
-
       boolean pre_flt_fail_innov_vel_horiz;
 
       boolean pre_flt_fail_innov_vel_vert;
+
+      boolean pre_flt_fail_innov_height;
 
       boolean pre_flt_fail_mag_field_disturbed;
 

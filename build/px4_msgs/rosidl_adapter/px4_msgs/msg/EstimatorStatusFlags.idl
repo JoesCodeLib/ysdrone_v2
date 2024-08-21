@@ -109,7 +109,7 @@ module px4_msgs {
 
       @verbatim (language="comment", text=
         "22 - true when yaw (not ground course) data fusion from a GPS receiver is intended")
-      boolean cs_gnss_yaw;
+      boolean cs_gps_yaw;
 
       @verbatim (language="comment", text=
         "23 - true when the in-flight mag field alignment has been completed")
@@ -129,7 +129,7 @@ module px4_msgs {
 
       @verbatim (language="comment", text=
         "27 - true when the GNSS heading has been declared faulty and is no longer being used")
-      boolean cs_gnss_yaw_fault;
+      boolean cs_gps_yaw_fault;
 
       @verbatim (language="comment", text=
         "28 - true when the range finder has been declared faulty and is no longer being used")
@@ -174,14 +174,6 @@ module px4_msgs {
       @verbatim (language="comment", text=
         "38 - true if auxiliary global position measurement fusion is intended")
       boolean cs_aux_gpos;
-
-      @verbatim (language="comment", text=
-        "39 - true if we are fusing range finder data for terrain")
-      boolean cs_rng_terrain;
-
-      @verbatim (language="comment", text=
-        "40 - true if we are fusing flow data for terrain")
-      boolean cs_opt_flow_terrain;
 
       @verbatim (language="comment", text=
         "fault status" "\n"

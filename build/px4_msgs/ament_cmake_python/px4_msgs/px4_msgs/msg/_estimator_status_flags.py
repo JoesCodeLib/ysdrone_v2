@@ -80,12 +80,12 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
         '_cs_fuse_aspd',
         '_cs_gnd_effect',
         '_cs_rng_stuck',
-        '_cs_gnss_yaw',
+        '_cs_gps_yaw',
         '_cs_mag_aligned_in_flight',
         '_cs_ev_vel',
         '_cs_synthetic_mag_z',
         '_cs_vehicle_at_rest',
-        '_cs_gnss_yaw_fault',
+        '_cs_gps_yaw_fault',
         '_cs_rng_fault',
         '_cs_inertial_dead_reckoning',
         '_cs_wind_dead_reckoning',
@@ -97,8 +97,6 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
         '_cs_ev_yaw_fault',
         '_cs_mag_heading_consistent',
         '_cs_aux_gpos',
-        '_cs_rng_terrain',
-        '_cs_opt_flow_terrain',
         '_fault_status_changes',
         '_fs_bad_mag_x',
         '_fs_bad_mag_y',
@@ -151,12 +149,12 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
         'cs_fuse_aspd': 'boolean',
         'cs_gnd_effect': 'boolean',
         'cs_rng_stuck': 'boolean',
-        'cs_gnss_yaw': 'boolean',
+        'cs_gps_yaw': 'boolean',
         'cs_mag_aligned_in_flight': 'boolean',
         'cs_ev_vel': 'boolean',
         'cs_synthetic_mag_z': 'boolean',
         'cs_vehicle_at_rest': 'boolean',
-        'cs_gnss_yaw_fault': 'boolean',
+        'cs_gps_yaw_fault': 'boolean',
         'cs_rng_fault': 'boolean',
         'cs_inertial_dead_reckoning': 'boolean',
         'cs_wind_dead_reckoning': 'boolean',
@@ -168,8 +166,6 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
         'cs_ev_yaw_fault': 'boolean',
         'cs_mag_heading_consistent': 'boolean',
         'cs_aux_gpos': 'boolean',
-        'cs_rng_terrain': 'boolean',
-        'cs_opt_flow_terrain': 'boolean',
         'fault_status_changes': 'uint32',
         'fs_bad_mag_x': 'boolean',
         'fs_bad_mag_y': 'boolean',
@@ -200,8 +196,6 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
         rosidl_parser.definition.BasicType('uint64'),  # noqa: E501
         rosidl_parser.definition.BasicType('uint64'),  # noqa: E501
         rosidl_parser.definition.BasicType('uint32'),  # noqa: E501
-        rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
-        rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
         rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
         rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
         rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
@@ -296,12 +290,12 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
         self.cs_fuse_aspd = kwargs.get('cs_fuse_aspd', bool())
         self.cs_gnd_effect = kwargs.get('cs_gnd_effect', bool())
         self.cs_rng_stuck = kwargs.get('cs_rng_stuck', bool())
-        self.cs_gnss_yaw = kwargs.get('cs_gnss_yaw', bool())
+        self.cs_gps_yaw = kwargs.get('cs_gps_yaw', bool())
         self.cs_mag_aligned_in_flight = kwargs.get('cs_mag_aligned_in_flight', bool())
         self.cs_ev_vel = kwargs.get('cs_ev_vel', bool())
         self.cs_synthetic_mag_z = kwargs.get('cs_synthetic_mag_z', bool())
         self.cs_vehicle_at_rest = kwargs.get('cs_vehicle_at_rest', bool())
-        self.cs_gnss_yaw_fault = kwargs.get('cs_gnss_yaw_fault', bool())
+        self.cs_gps_yaw_fault = kwargs.get('cs_gps_yaw_fault', bool())
         self.cs_rng_fault = kwargs.get('cs_rng_fault', bool())
         self.cs_inertial_dead_reckoning = kwargs.get('cs_inertial_dead_reckoning', bool())
         self.cs_wind_dead_reckoning = kwargs.get('cs_wind_dead_reckoning', bool())
@@ -313,8 +307,6 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
         self.cs_ev_yaw_fault = kwargs.get('cs_ev_yaw_fault', bool())
         self.cs_mag_heading_consistent = kwargs.get('cs_mag_heading_consistent', bool())
         self.cs_aux_gpos = kwargs.get('cs_aux_gpos', bool())
-        self.cs_rng_terrain = kwargs.get('cs_rng_terrain', bool())
-        self.cs_opt_flow_terrain = kwargs.get('cs_opt_flow_terrain', bool())
         self.fault_status_changes = kwargs.get('fault_status_changes', int())
         self.fs_bad_mag_x = kwargs.get('fs_bad_mag_x', bool())
         self.fs_bad_mag_y = kwargs.get('fs_bad_mag_y', bool())
@@ -419,7 +411,7 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
             return False
         if self.cs_rng_stuck != other.cs_rng_stuck:
             return False
-        if self.cs_gnss_yaw != other.cs_gnss_yaw:
+        if self.cs_gps_yaw != other.cs_gps_yaw:
             return False
         if self.cs_mag_aligned_in_flight != other.cs_mag_aligned_in_flight:
             return False
@@ -429,7 +421,7 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
             return False
         if self.cs_vehicle_at_rest != other.cs_vehicle_at_rest:
             return False
-        if self.cs_gnss_yaw_fault != other.cs_gnss_yaw_fault:
+        if self.cs_gps_yaw_fault != other.cs_gps_yaw_fault:
             return False
         if self.cs_rng_fault != other.cs_rng_fault:
             return False
@@ -452,10 +444,6 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
         if self.cs_mag_heading_consistent != other.cs_mag_heading_consistent:
             return False
         if self.cs_aux_gpos != other.cs_aux_gpos:
-            return False
-        if self.cs_rng_terrain != other.cs_rng_terrain:
-            return False
-        if self.cs_opt_flow_terrain != other.cs_opt_flow_terrain:
             return False
         if self.fault_status_changes != other.fault_status_changes:
             return False
@@ -844,17 +832,17 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
         self._cs_rng_stuck = value
 
     @builtins.property
-    def cs_gnss_yaw(self):
-        """Message field 'cs_gnss_yaw'."""
-        return self._cs_gnss_yaw
+    def cs_gps_yaw(self):
+        """Message field 'cs_gps_yaw'."""
+        return self._cs_gps_yaw
 
-    @cs_gnss_yaw.setter
-    def cs_gnss_yaw(self, value):
+    @cs_gps_yaw.setter
+    def cs_gps_yaw(self, value):
         if __debug__:
             assert \
                 isinstance(value, bool), \
-                "The 'cs_gnss_yaw' field must be of type 'bool'"
-        self._cs_gnss_yaw = value
+                "The 'cs_gps_yaw' field must be of type 'bool'"
+        self._cs_gps_yaw = value
 
     @builtins.property
     def cs_mag_aligned_in_flight(self):
@@ -909,17 +897,17 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
         self._cs_vehicle_at_rest = value
 
     @builtins.property
-    def cs_gnss_yaw_fault(self):
-        """Message field 'cs_gnss_yaw_fault'."""
-        return self._cs_gnss_yaw_fault
+    def cs_gps_yaw_fault(self):
+        """Message field 'cs_gps_yaw_fault'."""
+        return self._cs_gps_yaw_fault
 
-    @cs_gnss_yaw_fault.setter
-    def cs_gnss_yaw_fault(self, value):
+    @cs_gps_yaw_fault.setter
+    def cs_gps_yaw_fault(self, value):
         if __debug__:
             assert \
                 isinstance(value, bool), \
-                "The 'cs_gnss_yaw_fault' field must be of type 'bool'"
-        self._cs_gnss_yaw_fault = value
+                "The 'cs_gps_yaw_fault' field must be of type 'bool'"
+        self._cs_gps_yaw_fault = value
 
     @builtins.property
     def cs_rng_fault(self):
@@ -1063,32 +1051,6 @@ class EstimatorStatusFlags(metaclass=Metaclass_EstimatorStatusFlags):
                 isinstance(value, bool), \
                 "The 'cs_aux_gpos' field must be of type 'bool'"
         self._cs_aux_gpos = value
-
-    @builtins.property
-    def cs_rng_terrain(self):
-        """Message field 'cs_rng_terrain'."""
-        return self._cs_rng_terrain
-
-    @cs_rng_terrain.setter
-    def cs_rng_terrain(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, bool), \
-                "The 'cs_rng_terrain' field must be of type 'bool'"
-        self._cs_rng_terrain = value
-
-    @builtins.property
-    def cs_opt_flow_terrain(self):
-        """Message field 'cs_opt_flow_terrain'."""
-        return self._cs_opt_flow_terrain
-
-    @cs_opt_flow_terrain.setter
-    def cs_opt_flow_terrain(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, bool), \
-                "The 'cs_opt_flow_terrain' field must be of type 'bool'"
-        self._cs_opt_flow_terrain = value
 
     @builtins.property
     def fault_status_changes(self):

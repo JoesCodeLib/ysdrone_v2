@@ -41,20 +41,12 @@ module px4_msgs {
       float delta_alt;
 
       @verbatim (language="comment", text=
-        "Reset delta for terrain")
-      float delta_terrain;
-
-      @verbatim (language="comment", text=
         "Counter for reset events on horizontal position coordinates")
       uint8 lat_lon_reset_counter;
 
       @verbatim (language="comment", text=
         "Counter for reset events on altitude")
       uint8 alt_reset_counter;
-
-      @verbatim (language="comment", text=
-        "Counter for reset events on terrain")
-      uint8 terrain_reset_counter;
 
       @verbatim (language="comment", text=
         "Standard deviation of horizontal position error, (metres)")

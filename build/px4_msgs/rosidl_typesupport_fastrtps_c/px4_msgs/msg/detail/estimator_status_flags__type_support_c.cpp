@@ -174,9 +174,9 @@ static bool _EstimatorStatusFlags__cdr_serialize(
     cdr << (ros_message->cs_rng_stuck ? true : false);
   }
 
-  // Field name: cs_gnss_yaw
+  // Field name: cs_gps_yaw
   {
-    cdr << (ros_message->cs_gnss_yaw ? true : false);
+    cdr << (ros_message->cs_gps_yaw ? true : false);
   }
 
   // Field name: cs_mag_aligned_in_flight
@@ -199,9 +199,9 @@ static bool _EstimatorStatusFlags__cdr_serialize(
     cdr << (ros_message->cs_vehicle_at_rest ? true : false);
   }
 
-  // Field name: cs_gnss_yaw_fault
+  // Field name: cs_gps_yaw_fault
   {
-    cdr << (ros_message->cs_gnss_yaw_fault ? true : false);
+    cdr << (ros_message->cs_gps_yaw_fault ? true : false);
   }
 
   // Field name: cs_rng_fault
@@ -257,16 +257,6 @@ static bool _EstimatorStatusFlags__cdr_serialize(
   // Field name: cs_aux_gpos
   {
     cdr << (ros_message->cs_aux_gpos ? true : false);
-  }
-
-  // Field name: cs_rng_terrain
-  {
-    cdr << (ros_message->cs_rng_terrain ? true : false);
-  }
-
-  // Field name: cs_opt_flow_terrain
-  {
-    cdr << (ros_message->cs_opt_flow_terrain ? true : false);
   }
 
   // Field name: fault_status_changes
@@ -570,11 +560,11 @@ static bool _EstimatorStatusFlags__cdr_deserialize(
     ros_message->cs_rng_stuck = tmp ? true : false;
   }
 
-  // Field name: cs_gnss_yaw
+  // Field name: cs_gps_yaw
   {
     uint8_t tmp;
     cdr >> tmp;
-    ros_message->cs_gnss_yaw = tmp ? true : false;
+    ros_message->cs_gps_yaw = tmp ? true : false;
   }
 
   // Field name: cs_mag_aligned_in_flight
@@ -605,11 +595,11 @@ static bool _EstimatorStatusFlags__cdr_deserialize(
     ros_message->cs_vehicle_at_rest = tmp ? true : false;
   }
 
-  // Field name: cs_gnss_yaw_fault
+  // Field name: cs_gps_yaw_fault
   {
     uint8_t tmp;
     cdr >> tmp;
-    ros_message->cs_gnss_yaw_fault = tmp ? true : false;
+    ros_message->cs_gps_yaw_fault = tmp ? true : false;
   }
 
   // Field name: cs_rng_fault
@@ -687,20 +677,6 @@ static bool _EstimatorStatusFlags__cdr_deserialize(
     uint8_t tmp;
     cdr >> tmp;
     ros_message->cs_aux_gpos = tmp ? true : false;
-  }
-
-  // Field name: cs_rng_terrain
-  {
-    uint8_t tmp;
-    cdr >> tmp;
-    ros_message->cs_rng_terrain = tmp ? true : false;
-  }
-
-  // Field name: cs_opt_flow_terrain
-  {
-    uint8_t tmp;
-    cdr >> tmp;
-    ros_message->cs_opt_flow_terrain = tmp ? true : false;
   }
 
   // Field name: fault_status_changes
@@ -1034,9 +1010,9 @@ size_t get_serialized_size_px4_msgs__msg__EstimatorStatusFlags(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // field.name cs_gnss_yaw
+  // field.name cs_gps_yaw
   {
-    size_t item_size = sizeof(ros_message->cs_gnss_yaw);
+    size_t item_size = sizeof(ros_message->cs_gps_yaw);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -1064,9 +1040,9 @@ size_t get_serialized_size_px4_msgs__msg__EstimatorStatusFlags(
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
-  // field.name cs_gnss_yaw_fault
+  // field.name cs_gps_yaw_fault
   {
-    size_t item_size = sizeof(ros_message->cs_gnss_yaw_fault);
+    size_t item_size = sizeof(ros_message->cs_gps_yaw_fault);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -1133,18 +1109,6 @@ size_t get_serialized_size_px4_msgs__msg__EstimatorStatusFlags(
   // field.name cs_aux_gpos
   {
     size_t item_size = sizeof(ros_message->cs_aux_gpos);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name cs_rng_terrain
-  {
-    size_t item_size = sizeof(ros_message->cs_rng_terrain);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
-  // field.name cs_opt_flow_terrain
-  {
-    size_t item_size = sizeof(ros_message->cs_opt_flow_terrain);
     current_alignment += item_size +
       eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
   }
@@ -1499,7 +1463,7 @@ size_t max_serialized_size_px4_msgs__msg__EstimatorStatusFlags(
     last_member_size = array_size * sizeof(uint8_t);
     current_alignment += array_size * sizeof(uint8_t);
   }
-  // member: cs_gnss_yaw
+  // member: cs_gps_yaw
   {
     size_t array_size = 1;
 
@@ -1534,7 +1498,7 @@ size_t max_serialized_size_px4_msgs__msg__EstimatorStatusFlags(
     last_member_size = array_size * sizeof(uint8_t);
     current_alignment += array_size * sizeof(uint8_t);
   }
-  // member: cs_gnss_yaw_fault
+  // member: cs_gps_yaw_fault
   {
     size_t array_size = 1;
 
@@ -1612,20 +1576,6 @@ size_t max_serialized_size_px4_msgs__msg__EstimatorStatusFlags(
     current_alignment += array_size * sizeof(uint8_t);
   }
   // member: cs_aux_gpos
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint8_t);
-    current_alignment += array_size * sizeof(uint8_t);
-  }
-  // member: cs_rng_terrain
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint8_t);
-    current_alignment += array_size * sizeof(uint8_t);
-  }
-  // member: cs_opt_flow_terrain
   {
     size_t array_size = 1;
 

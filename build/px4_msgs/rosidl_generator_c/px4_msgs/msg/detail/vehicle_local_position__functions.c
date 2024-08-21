@@ -54,11 +54,8 @@ px4_msgs__msg__VehicleLocalPosition__init(px4_msgs__msg__VehicleLocalPosition * 
   // ref_lat
   // ref_lon
   // ref_alt
-  // dist_bottom_valid
   // dist_bottom
-  // dist_bottom_var
-  // delta_dist_bottom
-  // dist_bottom_reset_counter
+  // dist_bottom_valid
   // dist_bottom_sensor_bitfield
   // eph
   // epv
@@ -115,11 +112,8 @@ px4_msgs__msg__VehicleLocalPosition__fini(px4_msgs__msg__VehicleLocalPosition * 
   // ref_lat
   // ref_lon
   // ref_alt
-  // dist_bottom_valid
   // dist_bottom
-  // dist_bottom_var
-  // delta_dist_bottom
-  // dist_bottom_reset_counter
+  // dist_bottom_valid
   // dist_bottom_sensor_bitfield
   // eph
   // epv
@@ -290,24 +284,12 @@ px4_msgs__msg__VehicleLocalPosition__are_equal(const px4_msgs__msg__VehicleLocal
   if (lhs->ref_alt != rhs->ref_alt) {
     return false;
   }
-  // dist_bottom_valid
-  if (lhs->dist_bottom_valid != rhs->dist_bottom_valid) {
-    return false;
-  }
   // dist_bottom
   if (lhs->dist_bottom != rhs->dist_bottom) {
     return false;
   }
-  // dist_bottom_var
-  if (lhs->dist_bottom_var != rhs->dist_bottom_var) {
-    return false;
-  }
-  // delta_dist_bottom
-  if (lhs->delta_dist_bottom != rhs->delta_dist_bottom) {
-    return false;
-  }
-  // dist_bottom_reset_counter
-  if (lhs->dist_bottom_reset_counter != rhs->dist_bottom_reset_counter) {
+  // dist_bottom_valid
+  if (lhs->dist_bottom_valid != rhs->dist_bottom_valid) {
     return false;
   }
   // dist_bottom_sensor_bitfield
@@ -439,16 +421,10 @@ px4_msgs__msg__VehicleLocalPosition__copy(
   output->ref_lon = input->ref_lon;
   // ref_alt
   output->ref_alt = input->ref_alt;
-  // dist_bottom_valid
-  output->dist_bottom_valid = input->dist_bottom_valid;
   // dist_bottom
   output->dist_bottom = input->dist_bottom;
-  // dist_bottom_var
-  output->dist_bottom_var = input->dist_bottom_var;
-  // delta_dist_bottom
-  output->delta_dist_bottom = input->delta_dist_bottom;
-  // dist_bottom_reset_counter
-  output->dist_bottom_reset_counter = input->dist_bottom_reset_counter;
+  // dist_bottom_valid
+  output->dist_bottom_valid = input->dist_bottom_valid;
   // dist_bottom_sensor_bitfield
   output->dist_bottom_sensor_bitfield = input->dist_bottom_sensor_bitfield;
   // eph

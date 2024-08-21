@@ -130,7 +130,6 @@ px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_flight_p
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_follow_target.py
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_follow_target_estimator.py
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_follow_target_status.py
-px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_fuel_tank_status.py
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_generator_status.py
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_geofence_result.py
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_geofence_status.py
@@ -211,8 +210,6 @@ px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rc_chann
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rc_parameter_map.py
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_register_ext_component_reply.py
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_register_ext_component_request.py
-px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rover_ackermann_guidance_status.py
-px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rover_ackermann_status.py
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rpm.py
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rtl_status.py
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rtl_time_estimate.py
@@ -349,7 +346,6 @@ px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_flight_p
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_follow_target_s.c
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_follow_target_estimator_s.c
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_follow_target_status_s.c
-px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_fuel_tank_status_s.c
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_generator_status_s.c
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_geofence_result_s.c
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_geofence_status_s.c
@@ -430,8 +426,6 @@ px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rc_chann
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rc_parameter_map_s.c
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_register_ext_component_reply_s.c
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_register_ext_component_request_s.c
-px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rover_ackermann_guidance_status_s.c
-px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rover_ackermann_status_s.c
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rpm_s.c
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rtl_status_s.c
 px4_msgs__py/CMakeFiles/px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rtl_time_estimate_s.c
@@ -580,7 +574,6 @@ rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: ros
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/FollowTarget.idl
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/FollowTargetEstimator.idl
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/FollowTargetStatus.idl
-rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/FuelTankStatus.idl
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/GeneratorStatus.idl
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/GeofenceResult.idl
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/GeofenceStatus.idl
@@ -661,8 +654,6 @@ rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: ros
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/RcParameterMap.idl
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/RegisterExtComponentReply.idl
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/RegisterExtComponentRequest.idl
-rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/RoverAckermannGuidanceStatus.idl
-rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/RoverAckermannStatus.idl
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/Rpm.idl
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/RtlStatus.idl
 rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c: rosidl_adapter/px4_msgs/msg/RtlTimeEstimate.idl
@@ -930,9 +921,6 @@ rosidl_generator_py/px4_msgs/msg/_follow_target_estimator.py: rosidl_generator_p
 rosidl_generator_py/px4_msgs/msg/_follow_target_status.py: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_follow_target_status.py
 
-rosidl_generator_py/px4_msgs/msg/_fuel_tank_status.py: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_fuel_tank_status.py
-
 rosidl_generator_py/px4_msgs/msg/_generator_status.py: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_generator_status.py
 
@@ -1172,12 +1160,6 @@ rosidl_generator_py/px4_msgs/msg/_register_ext_component_reply.py: rosidl_genera
 
 rosidl_generator_py/px4_msgs/msg/_register_ext_component_request.py: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_register_ext_component_request.py
-
-rosidl_generator_py/px4_msgs/msg/_rover_ackermann_guidance_status.py: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_rover_ackermann_guidance_status.py
-
-rosidl_generator_py/px4_msgs/msg/_rover_ackermann_status.py: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_rover_ackermann_status.py
 
 rosidl_generator_py/px4_msgs/msg/_rpm.py: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_rpm.py
@@ -1587,9 +1569,6 @@ rosidl_generator_py/px4_msgs/msg/_follow_target_estimator_s.c: rosidl_generator_
 rosidl_generator_py/px4_msgs/msg/_follow_target_status_s.c: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_follow_target_status_s.c
 
-rosidl_generator_py/px4_msgs/msg/_fuel_tank_status_s.c: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_fuel_tank_status_s.c
-
 rosidl_generator_py/px4_msgs/msg/_generator_status_s.c: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_generator_status_s.c
 
@@ -1829,12 +1808,6 @@ rosidl_generator_py/px4_msgs/msg/_register_ext_component_reply_s.c: rosidl_gener
 
 rosidl_generator_py/px4_msgs/msg/_register_ext_component_request_s.c: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_register_ext_component_request_s.c
-
-rosidl_generator_py/px4_msgs/msg/_rover_ackermann_guidance_status_s.c: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_rover_ackermann_guidance_status_s.c
-
-rosidl_generator_py/px4_msgs/msg/_rover_ackermann_status_s.c: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_rover_ackermann_status_s.c
 
 rosidl_generator_py/px4_msgs/msg/_rpm_s.c: rosidl_generator_py/px4_msgs/_px4_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_py/px4_msgs/msg/_rpm_s.c
@@ -2182,8 +2155,6 @@ px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_follow_target_estimator_s.c
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_follow_target_s.c
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_follow_target_status.py
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_follow_target_status_s.c
-px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_fuel_tank_status.py
-px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_fuel_tank_status_s.c
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_generator_status.py
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_generator_status_s.c
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_geofence_result.py
@@ -2344,10 +2315,6 @@ px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_register_ext_component_reply.py
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_register_ext_component_reply_s.c
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_register_ext_component_request.py
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_register_ext_component_request_s.c
-px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rover_ackermann_guidance_status.py
-px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rover_ackermann_guidance_status_s.c
-px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rover_ackermann_status.py
-px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rover_ackermann_status_s.c
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rpm.py
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rpm_s.c
 px4_msgs__py: rosidl_generator_py/px4_msgs/msg/_rtl_status.py

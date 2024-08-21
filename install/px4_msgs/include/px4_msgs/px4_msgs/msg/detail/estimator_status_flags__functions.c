@@ -42,12 +42,12 @@ px4_msgs__msg__EstimatorStatusFlags__init(px4_msgs__msg__EstimatorStatusFlags * 
   // cs_fuse_aspd
   // cs_gnd_effect
   // cs_rng_stuck
-  // cs_gnss_yaw
+  // cs_gps_yaw
   // cs_mag_aligned_in_flight
   // cs_ev_vel
   // cs_synthetic_mag_z
   // cs_vehicle_at_rest
-  // cs_gnss_yaw_fault
+  // cs_gps_yaw_fault
   // cs_rng_fault
   // cs_inertial_dead_reckoning
   // cs_wind_dead_reckoning
@@ -59,8 +59,6 @@ px4_msgs__msg__EstimatorStatusFlags__init(px4_msgs__msg__EstimatorStatusFlags * 
   // cs_ev_yaw_fault
   // cs_mag_heading_consistent
   // cs_aux_gpos
-  // cs_rng_terrain
-  // cs_opt_flow_terrain
   // fault_status_changes
   // fs_bad_mag_x
   // fs_bad_mag_y
@@ -119,12 +117,12 @@ px4_msgs__msg__EstimatorStatusFlags__fini(px4_msgs__msg__EstimatorStatusFlags * 
   // cs_fuse_aspd
   // cs_gnd_effect
   // cs_rng_stuck
-  // cs_gnss_yaw
+  // cs_gps_yaw
   // cs_mag_aligned_in_flight
   // cs_ev_vel
   // cs_synthetic_mag_z
   // cs_vehicle_at_rest
-  // cs_gnss_yaw_fault
+  // cs_gps_yaw_fault
   // cs_rng_fault
   // cs_inertial_dead_reckoning
   // cs_wind_dead_reckoning
@@ -136,8 +134,6 @@ px4_msgs__msg__EstimatorStatusFlags__fini(px4_msgs__msg__EstimatorStatusFlags * 
   // cs_ev_yaw_fault
   // cs_mag_heading_consistent
   // cs_aux_gpos
-  // cs_rng_terrain
-  // cs_opt_flow_terrain
   // fault_status_changes
   // fs_bad_mag_x
   // fs_bad_mag_y
@@ -270,8 +266,8 @@ px4_msgs__msg__EstimatorStatusFlags__are_equal(const px4_msgs__msg__EstimatorSta
   if (lhs->cs_rng_stuck != rhs->cs_rng_stuck) {
     return false;
   }
-  // cs_gnss_yaw
-  if (lhs->cs_gnss_yaw != rhs->cs_gnss_yaw) {
+  // cs_gps_yaw
+  if (lhs->cs_gps_yaw != rhs->cs_gps_yaw) {
     return false;
   }
   // cs_mag_aligned_in_flight
@@ -290,8 +286,8 @@ px4_msgs__msg__EstimatorStatusFlags__are_equal(const px4_msgs__msg__EstimatorSta
   if (lhs->cs_vehicle_at_rest != rhs->cs_vehicle_at_rest) {
     return false;
   }
-  // cs_gnss_yaw_fault
-  if (lhs->cs_gnss_yaw_fault != rhs->cs_gnss_yaw_fault) {
+  // cs_gps_yaw_fault
+  if (lhs->cs_gps_yaw_fault != rhs->cs_gps_yaw_fault) {
     return false;
   }
   // cs_rng_fault
@@ -336,14 +332,6 @@ px4_msgs__msg__EstimatorStatusFlags__are_equal(const px4_msgs__msg__EstimatorSta
   }
   // cs_aux_gpos
   if (lhs->cs_aux_gpos != rhs->cs_aux_gpos) {
-    return false;
-  }
-  // cs_rng_terrain
-  if (lhs->cs_rng_terrain != rhs->cs_rng_terrain) {
-    return false;
-  }
-  // cs_opt_flow_terrain
-  if (lhs->cs_opt_flow_terrain != rhs->cs_opt_flow_terrain) {
     return false;
   }
   // fault_status_changes
@@ -503,8 +491,8 @@ px4_msgs__msg__EstimatorStatusFlags__copy(
   output->cs_gnd_effect = input->cs_gnd_effect;
   // cs_rng_stuck
   output->cs_rng_stuck = input->cs_rng_stuck;
-  // cs_gnss_yaw
-  output->cs_gnss_yaw = input->cs_gnss_yaw;
+  // cs_gps_yaw
+  output->cs_gps_yaw = input->cs_gps_yaw;
   // cs_mag_aligned_in_flight
   output->cs_mag_aligned_in_flight = input->cs_mag_aligned_in_flight;
   // cs_ev_vel
@@ -513,8 +501,8 @@ px4_msgs__msg__EstimatorStatusFlags__copy(
   output->cs_synthetic_mag_z = input->cs_synthetic_mag_z;
   // cs_vehicle_at_rest
   output->cs_vehicle_at_rest = input->cs_vehicle_at_rest;
-  // cs_gnss_yaw_fault
-  output->cs_gnss_yaw_fault = input->cs_gnss_yaw_fault;
+  // cs_gps_yaw_fault
+  output->cs_gps_yaw_fault = input->cs_gps_yaw_fault;
   // cs_rng_fault
   output->cs_rng_fault = input->cs_rng_fault;
   // cs_inertial_dead_reckoning
@@ -537,10 +525,6 @@ px4_msgs__msg__EstimatorStatusFlags__copy(
   output->cs_mag_heading_consistent = input->cs_mag_heading_consistent;
   // cs_aux_gpos
   output->cs_aux_gpos = input->cs_aux_gpos;
-  // cs_rng_terrain
-  output->cs_rng_terrain = input->cs_rng_terrain;
-  // cs_opt_flow_terrain
-  output->cs_opt_flow_terrain = input->cs_opt_flow_terrain;
   // fault_status_changes
   output->fault_status_changes = input->fault_status_changes;
   // fs_bad_mag_x

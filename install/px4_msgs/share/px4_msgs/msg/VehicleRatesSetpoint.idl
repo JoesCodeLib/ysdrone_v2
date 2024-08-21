@@ -12,7 +12,7 @@ module px4_msgs {
       uint64 timestamp;
 
       @verbatim (language="comment", text=
-        "body angular rates in FRD frame" "\n"
+        "body angular rates in NED frame" "\n"
         "[rad/s] roll rate setpoint")
       @unit (value="rad/s")
       float roll;

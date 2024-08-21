@@ -310,10 +310,6 @@ CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/follow_target_status
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/follow_target_status__builder.hpp
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/follow_target_status__struct.hpp
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/follow_target_status__traits.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/fuel_tank_status.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__builder.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__struct.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__traits.hpp
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/generator_status.hpp
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/generator_status__builder.hpp
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/generator_status__struct.hpp
@@ -634,14 +630,6 @@ CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/register_ext_compone
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/register_ext_component_request__builder.hpp
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/register_ext_component_request__struct.hpp
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/register_ext_component_request__traits.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/rover_ackermann_guidance_status.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__builder.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__struct.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__traits.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/rover_ackermann_status.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__builder.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__struct.hpp
-CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__traits.hpp
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/rpm.hpp
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rpm__builder.hpp
 CMakeFiles/px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rpm__struct.hpp
@@ -1011,7 +999,6 @@ rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/ms
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/FollowTarget.idl
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/FollowTargetEstimator.idl
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/FollowTargetStatus.idl
-rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/FuelTankStatus.idl
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/GeneratorStatus.idl
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/GeofenceResult.idl
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/GeofenceStatus.idl
@@ -1092,8 +1079,6 @@ rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/ms
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/RcParameterMap.idl
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/RegisterExtComponentReply.idl
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/RegisterExtComponentRequest.idl
-rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/RoverAckermannGuidanceStatus.idl
-rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/RoverAckermannStatus.idl
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/Rpm.idl
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/RtlStatus.idl
 rosidl_generator_cpp/px4_msgs/msg/action_request.hpp: rosidl_adapter/px4_msgs/msg/RtlTimeEstimate.idl
@@ -1900,18 +1885,6 @@ rosidl_generator_cpp/px4_msgs/msg/detail/follow_target_status__struct.hpp: rosid
 
 rosidl_generator_cpp/px4_msgs/msg/detail/follow_target_status__traits.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/detail/follow_target_status__traits.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/fuel_tank_status.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/fuel_tank_status.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__builder.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__builder.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__struct.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__struct.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__traits.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__traits.hpp
 
 rosidl_generator_cpp/px4_msgs/msg/generator_status.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/generator_status.hpp
@@ -2872,30 +2845,6 @@ rosidl_generator_cpp/px4_msgs/msg/detail/register_ext_component_request__struct.
 
 rosidl_generator_cpp/px4_msgs/msg/detail/register_ext_component_request__traits.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/detail/register_ext_component_request__traits.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/rover_ackermann_guidance_status.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/rover_ackermann_guidance_status.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__builder.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__builder.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__struct.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__struct.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__traits.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__traits.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/rover_ackermann_status.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/rover_ackermann_status.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__builder.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__builder.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__struct.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__struct.hpp
-
-rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__traits.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__traits.hpp
 
 rosidl_generator_cpp/px4_msgs/msg/rpm.hpp: rosidl_generator_cpp/px4_msgs/msg/action_request.hpp
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_cpp/px4_msgs/msg/rpm.hpp
@@ -3991,9 +3940,6 @@ px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/follow_target_estimator_
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/follow_target_status__builder.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/follow_target_status__struct.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/follow_target_status__traits.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__builder.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__struct.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/fuel_tank_status__traits.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/generator_status__builder.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/generator_status__struct.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/generator_status__traits.hpp
@@ -4234,12 +4180,6 @@ px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/register_ext_component_r
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/register_ext_component_request__builder.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/register_ext_component_request__struct.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/register_ext_component_request__traits.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__builder.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__struct.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_guidance_status__traits.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__builder.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__struct.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rover_ackermann_status__traits.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rpm__builder.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rpm__struct.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/detail/rpm__traits.hpp
@@ -4483,7 +4423,6 @@ px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/flight_phase_estimation.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/follow_target.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/follow_target_estimator.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/follow_target_status.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/fuel_tank_status.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/generator_status.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/geofence_result.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/geofence_status.hpp
@@ -4564,8 +4503,6 @@ px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/rc_channels.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/rc_parameter_map.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/register_ext_component_reply.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/register_ext_component_request.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/rover_ackermann_guidance_status.hpp
-px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/rover_ackermann_status.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/rpm.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/rtl_status.hpp
 px4_msgs__cpp: rosidl_generator_cpp/px4_msgs/msg/rtl_time_estimate.hpp

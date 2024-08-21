@@ -120,8 +120,6 @@ msg/FollowTargetEstimator.idl
 msg/FollowTargetEstimator.msg
 msg/FollowTargetStatus.idl
 msg/FollowTargetStatus.msg
-msg/FuelTankStatus.idl
-msg/FuelTankStatus.msg
 msg/GeneratorStatus.idl
 msg/GeneratorStatus.msg
 msg/GeofenceResult.idl
@@ -282,10 +280,6 @@ msg/RegisterExtComponentReply.idl
 msg/RegisterExtComponentReply.msg
 msg/RegisterExtComponentRequest.idl
 msg/RegisterExtComponentRequest.msg
-msg/RoverAckermannGuidanceStatus.idl
-msg/RoverAckermannGuidanceStatus.msg
-msg/RoverAckermannStatus.idl
-msg/RoverAckermannStatus.msg
 msg/Rpm.idl
 msg/Rpm.msg
 msg/RtlStatus.idl

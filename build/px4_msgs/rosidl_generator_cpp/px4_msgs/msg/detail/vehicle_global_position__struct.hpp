@@ -45,10 +45,8 @@ struct VehicleGlobalPosition_
       this->alt = 0.0f;
       this->alt_ellipsoid = 0.0f;
       this->delta_alt = 0.0f;
-      this->delta_terrain = 0.0f;
       this->lat_lon_reset_counter = 0;
       this->alt_reset_counter = 0;
-      this->terrain_reset_counter = 0;
       this->eph = 0.0f;
       this->epv = 0.0f;
       this->terrain_alt = 0.0f;
@@ -70,10 +68,8 @@ struct VehicleGlobalPosition_
       this->alt = 0.0f;
       this->alt_ellipsoid = 0.0f;
       this->delta_alt = 0.0f;
-      this->delta_terrain = 0.0f;
       this->lat_lon_reset_counter = 0;
       this->alt_reset_counter = 0;
-      this->terrain_reset_counter = 0;
       this->eph = 0.0f;
       this->epv = 0.0f;
       this->terrain_alt = 0.0f;
@@ -104,18 +100,12 @@ struct VehicleGlobalPosition_
   using _delta_alt_type =
     float;
   _delta_alt_type delta_alt;
-  using _delta_terrain_type =
-    float;
-  _delta_terrain_type delta_terrain;
   using _lat_lon_reset_counter_type =
     uint8_t;
   _lat_lon_reset_counter_type lat_lon_reset_counter;
   using _alt_reset_counter_type =
     uint8_t;
   _alt_reset_counter_type alt_reset_counter;
-  using _terrain_reset_counter_type =
-    uint8_t;
-  _terrain_reset_counter_type terrain_reset_counter;
   using _eph_type =
     float;
   _eph_type eph;
@@ -175,12 +165,6 @@ struct VehicleGlobalPosition_
     this->delta_alt = _arg;
     return *this;
   }
-  Type & set__delta_terrain(
-    const float & _arg)
-  {
-    this->delta_terrain = _arg;
-    return *this;
-  }
   Type & set__lat_lon_reset_counter(
     const uint8_t & _arg)
   {
@@ -191,12 +175,6 @@ struct VehicleGlobalPosition_
     const uint8_t & _arg)
   {
     this->alt_reset_counter = _arg;
-    return *this;
-  }
-  Type & set__terrain_reset_counter(
-    const uint8_t & _arg)
-  {
-    this->terrain_reset_counter = _arg;
     return *this;
   }
   Type & set__eph(
@@ -293,16 +271,10 @@ struct VehicleGlobalPosition_
     if (this->delta_alt != other.delta_alt) {
       return false;
     }
-    if (this->delta_terrain != other.delta_terrain) {
-      return false;
-    }
     if (this->lat_lon_reset_counter != other.lat_lon_reset_counter) {
       return false;
     }
     if (this->alt_reset_counter != other.alt_reset_counter) {
-      return false;
-    }
-    if (this->terrain_reset_counter != other.terrain_reset_counter) {
       return false;
     }
     if (this->eph != other.eph) {

@@ -119,7 +119,6 @@ class Metaclass_VehicleCommand(type):
         'VEHICLE_CMD_FIXED_MAG_CAL_YAW': 42006,
         'VEHICLE_CMD_DO_WINCH': 42600,
         'VEHICLE_CMD_EXTERNAL_POSITION_ESTIMATE': 43003,
-        'VEHICLE_CMD_EXTERNAL_WIND_ESTIMATE': 43004,
         'VEHICLE_CMD_PX4_INTERNAL_START': 65537,
         'VEHICLE_CMD_SET_GPS_GLOBAL_ORIGIN': 100000,
         'VEHICLE_CMD_SET_NAV_STATE': 100001,
@@ -296,7 +295,6 @@ class Metaclass_VehicleCommand(type):
             'VEHICLE_CMD_FIXED_MAG_CAL_YAW': cls.__constants['VEHICLE_CMD_FIXED_MAG_CAL_YAW'],
             'VEHICLE_CMD_DO_WINCH': cls.__constants['VEHICLE_CMD_DO_WINCH'],
             'VEHICLE_CMD_EXTERNAL_POSITION_ESTIMATE': cls.__constants['VEHICLE_CMD_EXTERNAL_POSITION_ESTIMATE'],
-            'VEHICLE_CMD_EXTERNAL_WIND_ESTIMATE': cls.__constants['VEHICLE_CMD_EXTERNAL_WIND_ESTIMATE'],
             'VEHICLE_CMD_PX4_INTERNAL_START': cls.__constants['VEHICLE_CMD_PX4_INTERNAL_START'],
             'VEHICLE_CMD_SET_GPS_GLOBAL_ORIGIN': cls.__constants['VEHICLE_CMD_SET_GPS_GLOBAL_ORIGIN'],
             'VEHICLE_CMD_SET_NAV_STATE': cls.__constants['VEHICLE_CMD_SET_NAV_STATE'],
@@ -836,11 +834,6 @@ class Metaclass_VehicleCommand(type):
         return Metaclass_VehicleCommand.__constants['VEHICLE_CMD_EXTERNAL_POSITION_ESTIMATE']
 
     @property
-    def VEHICLE_CMD_EXTERNAL_WIND_ESTIMATE(self):
-        """Message constant 'VEHICLE_CMD_EXTERNAL_WIND_ESTIMATE'."""
-        return Metaclass_VehicleCommand.__constants['VEHICLE_CMD_EXTERNAL_WIND_ESTIMATE']
-
-    @property
     def VEHICLE_CMD_PX4_INTERNAL_START(self):
         """Message constant 'VEHICLE_CMD_PX4_INTERNAL_START'."""
         return Metaclass_VehicleCommand.__constants['VEHICLE_CMD_PX4_INTERNAL_START']
@@ -1198,7 +1191,6 @@ class VehicleCommand(metaclass=Metaclass_VehicleCommand):
       VEHICLE_CMD_FIXED_MAG_CAL_YAW
       VEHICLE_CMD_DO_WINCH
       VEHICLE_CMD_EXTERNAL_POSITION_ESTIMATE
-      VEHICLE_CMD_EXTERNAL_WIND_ESTIMATE
       VEHICLE_CMD_PX4_INTERNAL_START
       VEHICLE_CMD_SET_GPS_GLOBAL_ORIGIN
       VEHICLE_CMD_SET_NAV_STATE

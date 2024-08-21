@@ -405,48 +405,16 @@ private:
   ::px4_msgs::msg::EstimatorStatusFlags msg_;
 };
 
-class Init_EstimatorStatusFlags_cs_opt_flow_terrain
-{
-public:
-  explicit Init_EstimatorStatusFlags_cs_opt_flow_terrain(::px4_msgs::msg::EstimatorStatusFlags & msg)
-  : msg_(msg)
-  {}
-  Init_EstimatorStatusFlags_fault_status_changes cs_opt_flow_terrain(::px4_msgs::msg::EstimatorStatusFlags::_cs_opt_flow_terrain_type arg)
-  {
-    msg_.cs_opt_flow_terrain = std::move(arg);
-    return Init_EstimatorStatusFlags_fault_status_changes(msg_);
-  }
-
-private:
-  ::px4_msgs::msg::EstimatorStatusFlags msg_;
-};
-
-class Init_EstimatorStatusFlags_cs_rng_terrain
-{
-public:
-  explicit Init_EstimatorStatusFlags_cs_rng_terrain(::px4_msgs::msg::EstimatorStatusFlags & msg)
-  : msg_(msg)
-  {}
-  Init_EstimatorStatusFlags_cs_opt_flow_terrain cs_rng_terrain(::px4_msgs::msg::EstimatorStatusFlags::_cs_rng_terrain_type arg)
-  {
-    msg_.cs_rng_terrain = std::move(arg);
-    return Init_EstimatorStatusFlags_cs_opt_flow_terrain(msg_);
-  }
-
-private:
-  ::px4_msgs::msg::EstimatorStatusFlags msg_;
-};
-
 class Init_EstimatorStatusFlags_cs_aux_gpos
 {
 public:
   explicit Init_EstimatorStatusFlags_cs_aux_gpos(::px4_msgs::msg::EstimatorStatusFlags & msg)
   : msg_(msg)
   {}
-  Init_EstimatorStatusFlags_cs_rng_terrain cs_aux_gpos(::px4_msgs::msg::EstimatorStatusFlags::_cs_aux_gpos_type arg)
+  Init_EstimatorStatusFlags_fault_status_changes cs_aux_gpos(::px4_msgs::msg::EstimatorStatusFlags::_cs_aux_gpos_type arg)
   {
     msg_.cs_aux_gpos = std::move(arg);
-    return Init_EstimatorStatusFlags_cs_rng_terrain(msg_);
+    return Init_EstimatorStatusFlags_fault_status_changes(msg_);
   }
 
 private:
@@ -613,15 +581,15 @@ private:
   ::px4_msgs::msg::EstimatorStatusFlags msg_;
 };
 
-class Init_EstimatorStatusFlags_cs_gnss_yaw_fault
+class Init_EstimatorStatusFlags_cs_gps_yaw_fault
 {
 public:
-  explicit Init_EstimatorStatusFlags_cs_gnss_yaw_fault(::px4_msgs::msg::EstimatorStatusFlags & msg)
+  explicit Init_EstimatorStatusFlags_cs_gps_yaw_fault(::px4_msgs::msg::EstimatorStatusFlags & msg)
   : msg_(msg)
   {}
-  Init_EstimatorStatusFlags_cs_rng_fault cs_gnss_yaw_fault(::px4_msgs::msg::EstimatorStatusFlags::_cs_gnss_yaw_fault_type arg)
+  Init_EstimatorStatusFlags_cs_rng_fault cs_gps_yaw_fault(::px4_msgs::msg::EstimatorStatusFlags::_cs_gps_yaw_fault_type arg)
   {
-    msg_.cs_gnss_yaw_fault = std::move(arg);
+    msg_.cs_gps_yaw_fault = std::move(arg);
     return Init_EstimatorStatusFlags_cs_rng_fault(msg_);
   }
 
@@ -635,10 +603,10 @@ public:
   explicit Init_EstimatorStatusFlags_cs_vehicle_at_rest(::px4_msgs::msg::EstimatorStatusFlags & msg)
   : msg_(msg)
   {}
-  Init_EstimatorStatusFlags_cs_gnss_yaw_fault cs_vehicle_at_rest(::px4_msgs::msg::EstimatorStatusFlags::_cs_vehicle_at_rest_type arg)
+  Init_EstimatorStatusFlags_cs_gps_yaw_fault cs_vehicle_at_rest(::px4_msgs::msg::EstimatorStatusFlags::_cs_vehicle_at_rest_type arg)
   {
     msg_.cs_vehicle_at_rest = std::move(arg);
-    return Init_EstimatorStatusFlags_cs_gnss_yaw_fault(msg_);
+    return Init_EstimatorStatusFlags_cs_gps_yaw_fault(msg_);
   }
 
 private:
@@ -693,15 +661,15 @@ private:
   ::px4_msgs::msg::EstimatorStatusFlags msg_;
 };
 
-class Init_EstimatorStatusFlags_cs_gnss_yaw
+class Init_EstimatorStatusFlags_cs_gps_yaw
 {
 public:
-  explicit Init_EstimatorStatusFlags_cs_gnss_yaw(::px4_msgs::msg::EstimatorStatusFlags & msg)
+  explicit Init_EstimatorStatusFlags_cs_gps_yaw(::px4_msgs::msg::EstimatorStatusFlags & msg)
   : msg_(msg)
   {}
-  Init_EstimatorStatusFlags_cs_mag_aligned_in_flight cs_gnss_yaw(::px4_msgs::msg::EstimatorStatusFlags::_cs_gnss_yaw_type arg)
+  Init_EstimatorStatusFlags_cs_mag_aligned_in_flight cs_gps_yaw(::px4_msgs::msg::EstimatorStatusFlags::_cs_gps_yaw_type arg)
   {
-    msg_.cs_gnss_yaw = std::move(arg);
+    msg_.cs_gps_yaw = std::move(arg);
     return Init_EstimatorStatusFlags_cs_mag_aligned_in_flight(msg_);
   }
 
@@ -715,10 +683,10 @@ public:
   explicit Init_EstimatorStatusFlags_cs_rng_stuck(::px4_msgs::msg::EstimatorStatusFlags & msg)
   : msg_(msg)
   {}
-  Init_EstimatorStatusFlags_cs_gnss_yaw cs_rng_stuck(::px4_msgs::msg::EstimatorStatusFlags::_cs_rng_stuck_type arg)
+  Init_EstimatorStatusFlags_cs_gps_yaw cs_rng_stuck(::px4_msgs::msg::EstimatorStatusFlags::_cs_rng_stuck_type arg)
   {
     msg_.cs_rng_stuck = std::move(arg);
-    return Init_EstimatorStatusFlags_cs_gnss_yaw(msg_);
+    return Init_EstimatorStatusFlags_cs_gps_yaw(msg_);
   }
 
 private:

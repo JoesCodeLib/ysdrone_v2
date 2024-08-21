@@ -113,15 +113,6 @@ bool px4_msgs__msg__vehicle_global_position__convert_from_py(PyObject * _pymsg, 
     ros_message->delta_alt = (float)PyFloat_AS_DOUBLE(field);
     Py_DECREF(field);
   }
-  {  // delta_terrain
-    PyObject * field = PyObject_GetAttrString(_pymsg, "delta_terrain");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->delta_terrain = (float)PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
   {  // lat_lon_reset_counter
     PyObject * field = PyObject_GetAttrString(_pymsg, "lat_lon_reset_counter");
     if (!field) {
@@ -138,15 +129,6 @@ bool px4_msgs__msg__vehicle_global_position__convert_from_py(PyObject * _pymsg, 
     }
     assert(PyLong_Check(field));
     ros_message->alt_reset_counter = (uint8_t)PyLong_AsUnsignedLong(field);
-    Py_DECREF(field);
-  }
-  {  // terrain_reset_counter
-    PyObject * field = PyObject_GetAttrString(_pymsg, "terrain_reset_counter");
-    if (!field) {
-      return false;
-    }
-    assert(PyLong_Check(field));
-    ros_message->terrain_reset_counter = (uint8_t)PyLong_AsUnsignedLong(field);
     Py_DECREF(field);
   }
   {  // eph
@@ -293,17 +275,6 @@ PyObject * px4_msgs__msg__vehicle_global_position__convert_to_py(void * raw_ros_
       }
     }
   }
-  {  // delta_terrain
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->delta_terrain);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "delta_terrain", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
   {  // lat_lon_reset_counter
     PyObject * field = NULL;
     field = PyLong_FromUnsignedLong(ros_message->lat_lon_reset_counter);
@@ -320,17 +291,6 @@ PyObject * px4_msgs__msg__vehicle_global_position__convert_to_py(void * raw_ros_
     field = PyLong_FromUnsignedLong(ros_message->alt_reset_counter);
     {
       int rc = PyObject_SetAttrString(_pymessage, "alt_reset_counter", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // terrain_reset_counter
-    PyObject * field = NULL;
-    field = PyLong_FromUnsignedLong(ros_message->terrain_reset_counter);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "terrain_reset_counter", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

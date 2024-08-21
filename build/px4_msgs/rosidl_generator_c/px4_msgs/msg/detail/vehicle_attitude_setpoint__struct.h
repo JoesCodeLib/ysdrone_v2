@@ -35,7 +35,7 @@ typedef struct px4_msgs__msg__VehicleAttitudeSetpoint
   float q_d[4];
   /// For clarification: For multicopters thrust_body[0] and thrust[1] are usually 0 and thrust[2] is the negative throttle demand.
   /// For fixed wings thrust_x is the throttle demand and thrust_y, thrust_z will usually be zero.
-  /// Normalized thrust command in body FRD frame [-1,1]
+  /// Normalized thrust command in body NED frame [-1,1]
   float thrust_body[3];
   /// Reset roll/pitch/yaw integrals (navigation logic change)
   bool reset_integral;

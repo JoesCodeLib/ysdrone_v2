@@ -127,7 +127,6 @@ CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/FlightPhaseEstimati
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/FollowTarget.msg
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/FollowTargetEstimator.msg
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/FollowTargetStatus.msg
-CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/FuelTankStatus.msg
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/GeneratorStatus.msg
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/GeofenceResult.msg
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/GeofenceStatus.msg
@@ -208,8 +207,6 @@ CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/RcChannels.msg
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/RcParameterMap.msg
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/RegisterExtComponentReply.msg
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/RegisterExtComponentRequest.msg
-CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/RoverAckermannGuidanceStatus.msg
-CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/RoverAckermannStatus.msg
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/Rpm.msg
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/RtlStatus.msg
 CMakeFiles/px4_msgs: /home/joe/ysdrone_2024/src/px4_msgs/msg/RtlTimeEstimate.msg

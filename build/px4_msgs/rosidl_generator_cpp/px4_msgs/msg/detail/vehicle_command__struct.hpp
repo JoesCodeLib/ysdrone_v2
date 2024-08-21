@@ -414,8 +414,6 @@ struct VehicleCommand_
     42600u;
   static constexpr uint16_t VEHICLE_CMD_EXTERNAL_POSITION_ESTIMATE =
     43003u;
-  static constexpr uint16_t VEHICLE_CMD_EXTERNAL_WIND_ESTIMATE =
-    43004u;
   static constexpr uint32_t VEHICLE_CMD_PX4_INTERNAL_START =
     65537u;
   static constexpr uint32_t VEHICLE_CMD_SET_GPS_GLOBAL_ORIGIN =
@@ -1101,11 +1099,6 @@ constexpr uint16_t VehicleCommand_<ContainerAllocator>::VEHICLE_CMD_DO_WINCH;
 // static constexpr member variable definitions are only needed in C++14 and below, deprecated in C++17
 template<typename ContainerAllocator>
 constexpr uint16_t VehicleCommand_<ContainerAllocator>::VEHICLE_CMD_EXTERNAL_POSITION_ESTIMATE;
-#endif  // __cplusplus < 201703L
-#if __cplusplus < 201703L
-// static constexpr member variable definitions are only needed in C++14 and below, deprecated in C++17
-template<typename ContainerAllocator>
-constexpr uint16_t VehicleCommand_<ContainerAllocator>::VEHICLE_CMD_EXTERNAL_WIND_ESTIMATE;
 #endif  // __cplusplus < 201703L
 #if __cplusplus < 201703L
 // static constexpr member variable definitions are only needed in C++14 and below, deprecated in C++17

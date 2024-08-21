@@ -126,16 +126,10 @@ typedef struct px4_msgs__msg__VehicleLocalPosition
   /// Reference altitude AMSL, (metres)
   float ref_alt;
   /// Distance to surface
-  /// true if distance to bottom surface is valid
-  bool dist_bottom_valid;
   /// Distance from from bottom surface to ground, (metres)
   float dist_bottom;
-  /// terrain estimate variance (m^2)
-  float dist_bottom_var;
-  /// Amount of vertical shift of dist bottom estimate in latest reset
-  float delta_dist_bottom;
-  /// Index of latest dist bottom estimate reset
-  uint8_t dist_bottom_reset_counter;
+  /// true if distance to bottom surface is valid
+  bool dist_bottom_valid;
   /// bitfield indicating what type of sensor is used to estimate dist_bottom
   uint8_t dist_bottom_sensor_bitfield;
   /// Standard deviation of horizontal position error, (metres)

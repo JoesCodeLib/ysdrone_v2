@@ -258,8 +258,12 @@ typedef struct px4_msgs__msg__BatteryStatus
   bool connected;
   /// Battery voltage in volts, 0 if unknown
   float voltage_v;
+  /// Battery voltage in volts, filtered, 0 if unknown
+  float voltage_filtered_v;
   /// Battery current in amperes, -1 if unknown
   float current_a;
+  /// Battery current in amperes, filtered, 0 if unknown
+  float current_filtered_a;
   /// Battery current average in amperes (for FW average in level flight), -1 if unknown
   float current_average_a;
   /// Discharged amount in mAh, -1 if unknown
@@ -312,28 +316,22 @@ typedef struct px4_msgs__msg__BatteryStatus
   uint8_t warning;
   /// Battery mode. Note, the normal operation mode
   uint8_t mode;
+  /// The average power of the current discharge
+  float average_power;
+  /// The predicted charge or energy remaining in the battery
+  float available_energy;
   /// The compensated battery capacity
   float full_charge_capacity_wh;
   /// The compensated battery capacity remaining
   float remaining_capacity_wh;
+  /// The design capacity of the battery
+  float design_capacity;
+  /// The predicted remaining time until the battery reaches full charge, in minutes
+  uint16_t average_time_to_full;
   /// Number of battery overdischarge
   uint16_t over_discharge_count;
   /// Nominal voltage of the battery pack
   float nominal_voltage;
-  /// Internal resistance per cell estimate
-  float internal_resistance_estimate;
-  /// Open circuit voltage estimate
-  float ocv_estimate;
-  /// Filtered open circuit voltage estimate
-  float ocv_estimate_filtered;
-  /// [0, 1] Normalized volt based state of charge estimate
-  float volt_based_soc_estimate;
-  /// Predicted voltage
-  float voltage_prediction;
-  /// Prediction error
-  float prediction_error;
-  /// Norm of the covariance matrix
-  float estimation_covariance_norm;
 } px4_msgs__msg__BatteryStatus;
 
 // Struct for a sequence of px4_msgs__msg__BatteryStatus.

@@ -25,10 +25,8 @@ px4_msgs__msg__EstimatorAidSource1d__init(px4_msgs__msg__EstimatorAidSource1d * 
   // observation
   // observation_variance
   // innovation
-  // innovation_filtered
   // innovation_variance
   // test_ratio
-  // test_ratio_filtered
   // innovation_rejected
   // fused
   return true;
@@ -48,10 +46,8 @@ px4_msgs__msg__EstimatorAidSource1d__fini(px4_msgs__msg__EstimatorAidSource1d * 
   // observation
   // observation_variance
   // innovation
-  // innovation_filtered
   // innovation_variance
   // test_ratio
-  // test_ratio_filtered
   // innovation_rejected
   // fused
 }
@@ -94,20 +90,12 @@ px4_msgs__msg__EstimatorAidSource1d__are_equal(const px4_msgs__msg__EstimatorAid
   if (lhs->innovation != rhs->innovation) {
     return false;
   }
-  // innovation_filtered
-  if (lhs->innovation_filtered != rhs->innovation_filtered) {
-    return false;
-  }
   // innovation_variance
   if (lhs->innovation_variance != rhs->innovation_variance) {
     return false;
   }
   // test_ratio
   if (lhs->test_ratio != rhs->test_ratio) {
-    return false;
-  }
-  // test_ratio_filtered
-  if (lhs->test_ratio_filtered != rhs->test_ratio_filtered) {
     return false;
   }
   // innovation_rejected
@@ -145,14 +133,10 @@ px4_msgs__msg__EstimatorAidSource1d__copy(
   output->observation_variance = input->observation_variance;
   // innovation
   output->innovation = input->innovation;
-  // innovation_filtered
-  output->innovation_filtered = input->innovation_filtered;
   // innovation_variance
   output->innovation_variance = input->innovation_variance;
   // test_ratio
   output->test_ratio = input->test_ratio;
-  // test_ratio_filtered
-  output->test_ratio_filtered = input->test_ratio_filtered;
   // innovation_rejected
   output->innovation_rejected = input->innovation_rejected;
   // fused
